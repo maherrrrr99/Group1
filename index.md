@@ -156,7 +156,4 @@ The team followed clear milestones, starting from research and concept developme
 Strong teamwork and communication allowed effective collaboration and integration of all system components. The project is currently progressing from the design phase to prototyping and testing.
 
 ## ○ Gantt Chart *Updated*
-Add your updated Gantt chart here.
-
-```text
-[Insert image or link to MS Project export here]
+[View the updated Gantt Chart](https://studentsaduac-my.sharepoint.com/:x:/g/personal/1087993_students_adu_ac_ae/IQCVl5X-gnVOTbJbda9AOzVBAQxvkQVJ4Exoq-0edEJwLJE?e=tAfXTX&wdLOR=cD9B9CDF9-E9B2-46DC-981F-AE0154DF6142)
