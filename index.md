@@ -98,7 +98,7 @@ In terms of hardware layout and wiring, the servo motors are connected to the Ar
 
 
 ### ● Object detection
-○ HSV and colour detection
+○ [HSV and colour detection](Object_detection.md)
 
 ## ○ Testing and Validation
 
