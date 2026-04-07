@@ -107,6 +107,10 @@ The actuation system is based on multiple servo motors selected according to tor
 
 
 For sensing and object detection, the system integrates a camera connected to the Raspberry Pi. The current design considers either the Raspberry Pi Camera Module, which offers seamless integration and low latency, or a smartphone camera as an alternative for higher image quality. The camera provides real-time visual feedback, which is processed using computer vision and AI techniques to identify and locate objects for pick-and-place operations.
+<p align="center">
+  <img src="https://raw.githubusercontent.com/maherrrrr99/Group1/main/Images/Raspberry%20Pi%20Camera%20Module.jpg" width="200"/>
+</p>
+<p align="center"><em>Figure: Raspberry Pi Camera Module</em></p>
 
 In terms of hardware layout and wiring, the servo motors are connected to the Arduino’s PWM pins and powered using an external power supply to ensure stable operation and prevent overloading the control board. The Raspberry Pi interfaces directly with the camera and communicates with the Arduino to send control commands based on processed visual data. This architecture allows efficient integration of mechanical, electronic, and intelligent subsystems, resulting in a flexible and scalable mechatronic system.
 
