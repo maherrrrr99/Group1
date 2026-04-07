@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<?xml version="1.0" encoding="utf-8"?>
+<robot name="urdf">
+
+  <link name="base_link">
+    <inertial>
+      <origin xyz="0.0010046 0.0010584 0.00107405" rpy="0 0 0"/>
+      <mass value="0.207333995383758"/>
+      <inertia ixx="0.000243532408154124" ixy="-8.71165917808198E-07" ixz="1.6651626169009E-05"
+               iyy="0.000567529634612306" iyz="5.00374734708056E-06" izz="0.000401905114298968"/>
+    </inertial>
+
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://urdf/meshes/base_link.STL" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://urdf/meshes/base_link.STL" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="shoulder_Link">
+    <inertial>
+      <origin xyz="6.39e-07 1.384e-05 -2.212e-06" rpy="0 0 0"/>
+      <mass value="0.0563566428512413"/>
+      <inertia ixx="1.62423302062928E-05" ixy="8.59445809560576E-08" ixz="-1.81851941552393E-07"
+               iyy="3.08941911733891E-05" iyz="7.80567427296864E-08" izz="3.38539297343189E-05"/>
+    </inertial>
+
+    <visual>
+      <geometry>
+        <mesh filename="package://urdf/meshes/shoulder_Link.STL" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+
+    <collision>
+      <geometry>
+        <mesh filename="package://urdf/meshes/shoulder_Link.STL" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="j1" type="revolute">
+    <origin xyz="0.00099263 -0.001076 0.0010745" rpy="1.5708 0 0"/>
+    <parent link="base_link"/>
+    <child link="shoulder_Link"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-1.57" upper="1.57" effort="1" velocity="7"/>
+  </joint>
+
+  <link name="elbow_Link">
+    <inertial>
+      <origin xyz="-3.077e-05 3.175e-05 -4.747e-06" rpy="0 0 0"/>
+      <mass value="0.0763033017252141"/>
+      <inertia ixx="5.18279369702417E-05" ixy="3.26444616888044E-05" ixz="-1.8772014772101E-06"
+               iyy="4.97144747382547E-05" iyz="1.82804815551204E-06" izz="9.04301240312875E-05"/>
+    </inertial>
+
+    <visual>
+      <geometry>
+        <mesh filename="package://urdf/meshes/elbow_Link.STL" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+
+    <collision>
+      <geometry>
+        <mesh filename="package://urdf/meshes/elbow_Link.STL" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="j2" type="revolute">
+    <origin xyz="0 0.0000325 0" rpy="0.0065862 0.01558 -2.3417"/>
+    <parent link="shoulder_Link"/>
+    <child link="elbow_Link"/>
+    <axis xyz="0.0091818 0 -0.99996"/>
+    <limit lower="-1.57" upper="1.57" effort="1" velocity="7"/>
+  </joint>
+
+  <link name="wrist_Link">
+    <inertial>
+      <origin xyz="-3.394e-05 1.366e-06 1.070e-06" rpy="0 0 0"/>
+      <mass value="0.0654092355161869"/>
+      <inertia ixx="3.40346445188127E-05" ixy="-1.60991148226838E-05" ixz="3.88687642355712E-07"
+               iyy="5.74604621239122E-05" iyz="6.71998562090846E-07" izz="8.30175162306963E-05"/>
+    </inertial>
+
+    <visual>
+      <geometry>
+        <mesh filename="package://urdf/meshes/wrist_Link.STL" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+
+    <collision>
+      <geometry>
+        <mesh filename="package://urdf/meshes/wrist_Link.STL" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="j3" type="revolute">
+    <origin xyz="-0.000063182 0.000064091 -5.8015e-07" rpy="-0.0091725 0.0087575 1.5245"/>
+    <parent link="elbow_Link"/>
+    <child link="wrist_Link"/>
+    <axis xyz="0.0091818 0 -0.99996"/>
+    <limit lower="-1.57" upper="1.57" effort="1" velocity="7"/>
+  </joint>
+
+  <link name="gripper_Link">
+    <inertial>
+      <origin xyz="0.0008589 0.00116735 0.00099513" rpy="0 0 0"/>
+      <mass value="0.098263192134599"/>
+      <inertia ixx="3.46471414908844E-05" ixy="1.00912869162929E-06" ixz="6.3186394043883E-06"
+               iyy="3.29486848268827E-05" iyz="9.22781542077519E-08" izz="1.3092056266252E-05"/>
+    </inertial>
+
+    <visual>
+      <geometry>
+        <mesh filename="package://urdf/meshes/gripper_Link.STL" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+
+    <collision>
+      <geometry>
+        <mesh filename="package://urdf/meshes/gripper_Link.STL" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="j4" type="revolute">
+    <origin xyz="-0.0004209 -0.0016209 -0.00071005" rpy="-0.0050088 0.28768 0.54904"/>
+    <parent link="wrist_Link"/>
+    <child link="gripper_Link"/>
+    <axis xyz="0 0 0"/>
+  </joint>
+
+</robot>
