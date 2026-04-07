@@ -51,7 +51,7 @@ This project builds on these technical foundations by developing a pick-and-plac
 
 [○ Simulation and Analysis](Simulation_and_Analysis.md)
 
-[○ Prototyping_and_Fabrication](Prototyping_and_Fabrication.md)
+[○ Prototyping and Fabrication](Prototyping_and_Fabrication.md)
 
 
 
