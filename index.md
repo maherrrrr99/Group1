@@ -65,8 +65,8 @@ The concept development process was iterative and systematic, building on existi
 
 ## ○ Simulation and Analysis
 
-### ● Mechanical / Structural Simulation
-Describe simulations performed (stress, strain, motion, etc.).
+### ● Mechanical
+A mechanical analysis was performed in SolidWorks Motion Study to estimate the required torque at each joint throughout the robot’s movement. The simulation incorporated gravity effects and defined motor-driven joints to replicate realistic operating conditions. A predefined motion profile was applied to guide the arm through a representative pick-and-place cycle, allowing the software to compute the dynamic loads and torque demands over time. The results show peak torque values of approximately 165 N·mm at critical points in the motion. These values fall within the operating capabilities of the selected MG995 servo motors, confirming that the motor selection is appropriate for the intended application. Overall, the analysis validates that the system can operate reliably without overloading the actuators.
 
 ### ● Electrical / System Simulation
 Explain any circuit simulations, signal behavior, or system-level modeling.
