@@ -96,14 +96,31 @@ Kinematic modeling was also initiated using ROS 2 tools, where a URDF model of t
 | ROS 2 (FK/IK) | In Progress | URDF model working in RViz |
 | Fabrication | Started | 3D printing initiated |
 
+---
+
 # ● Discussion
 
-Interpret the results. Discuss:
-- what worked
-- what did not
-- limitations
-- lessons learned
-- possible future improvements
+The results indicate that the project is progressing in a structured and iterative manner, with strong alignment between design, simulation, and implementation. The successful validation of motor torque requirements confirms that the chosen actuators are appropriate, reducing the risk of mechanical failure during operation.
+
+The use of both classical computer vision (HSV detection) and modern deep learning approaches (YOLOv8) provides flexibility in object detection strategies. While HSV detection offers simplicity and low computational cost, it is sensitive to lighting conditions. In contrast, YOLOv8 demonstrates more robust detection but introduces higher computational requirements and longer training times, which was identified as a limitation during development. :contentReference[oaicite:4]{index=4}
+
+The integration of ROS 2 tools such as RViz and MoveIt2 represents an important step toward a more advanced and scalable system. Early implementation of forward and inverse kinematics allows for better validation of the robot’s motion and will support future autonomous control.
+
+However, progress has been impacted by external constraints, particularly limited access to university facilities, which delayed fabrication and physical testing. This has shifted the project focus toward software development, simulation, and system design during early stages. :contentReference[oaicite:5]{index=5}
+
+Despite these challenges, the project demonstrates steady progress through a build–test–learn approach. The combination of validated mechanical design, working simulation models, and initial computer vision implementation provides a strong foundation for upcoming stages, including full system integration, physical testing, and final validation.
+
+### Key Challenges and Limitations
+
+| Challenge | Impact | Mitigation |
+|----------|--------|-----------|
+| Limited lab access | Delayed prototyping | Focus on simulation and software |
+| High cost of components | Slower decision-making | Careful analysis before selection |
+| Long training time (YOLO) | Delayed testing cycles | Dataset optimization and iteration |
+| Team coordination constraints | Reduced collaboration | Increased virtual meetings |
+
+---
+
 
 # ● Project Management Summary
 The project was organized using a structured team-based approach. Tasks were divided among members based on key areas such as mechanical design, sensors, and control systems.
