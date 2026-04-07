@@ -57,6 +57,8 @@ Describe how the idea was generated and refined. Include sketches, brainstorming
 
 ### ● CAD Modeling
 ![Industrial Pick and Place Robot](Images/combined_clean.png)
+- [CAD (SolidWorks) ](CAD_SolidWorks.zip)
+- [STEP File)](assembly.STEP)
 
 
 
