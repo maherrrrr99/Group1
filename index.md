@@ -24,11 +24,8 @@ As a result, there is a need for a more versatile and intelligent pick-and-place
 
 # ● Abstract
 This project addresses the growing need for efficient and intelligent automation in object sorting and handling tasks. Many existing systems lack flexibility when dealing with objects of different shapes, sizes, and fragility, creating a demand for more adaptable pick-and-place robotic solutions.
- 
 To address this challenge, this project focuses on the design and development of a smart, autonomous pick-and-place robot capable of identifying, picking, and placing various objects such as bolts, nuts, eggs, stress balls, and CDs into designated locations. The system integrates a camera and a Raspberry Pi to enable vision-based object detection, eliminating the need for manual intervention and allowing for intelligent, real-time decision-making. A hybrid end-effector combining mechanical gripping and vacuum suction is used to enhance versatility and reliability when handling diverse objects.
- 
 The development follows a structured engineering methodology, progressing from system definition to advanced implementation stages. The robot integrates mechanical design, electrical systems, and control engineering, including stepper motors, sensors, Arduino-based control, and AI-supported vision processing. The design process is supported through CAD modeling, component selection, and iterative prototyping.
- 
 The expected outcome is a fully integrated mechatronic pick-and-place robotic system capable of autonomous operation with improved accuracy, efficiency, and adaptability. This project demonstrates the integration of mechanical, electrical, and intelligent systems, reflecting real-world applications in modern industrial automation.
 
 
@@ -53,17 +50,10 @@ This project builds on these technical foundations by developing a pick-and-plac
 [○ System Design](System_Design.md)
 
 [○ Simulation and Analysis](Simulation_and_Analysis.md)
-## ○ Prototyping and Fabrication
 
-### ● Manufacturing Process
-Explain how parts were made:
-- 3D printing
-- CNC machining
-- Laser cutting
-- Off-the-shelf components
+[○ Prototyping_and_Fabrication](Prototyping_and_Fabrication.md)
 
-### ● Assembly
-Describe how components were put together.
+
 
 
 
