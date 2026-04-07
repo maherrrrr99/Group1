@@ -77,13 +77,13 @@ This section is still under development and will be refined as the project progr
 
 # ● Results
 
-The project has progressed through several key development stages, including system design, simulation, and initial prototyping efforts. Major components such as the sensing system, motor selection, and vacuum-based end effector have been successfully analyzed and validated through calculations and decision-making frameworks. :contentReference[oaicite:0]{index=0}
+The project has progressed through several key development stages, including system design, simulation, and initial prototyping efforts. Major components such as the sensing system, motor selection, and vacuum-based end effector have been successfully analyzed and validated through calculations and decision-making frameworks.
 
-Mechanical analysis performed in SolidWorks confirmed that the required joint torques fall within the operating range of the selected actuators, supporting the feasibility of the design. Additionally, CAD models were completed and refined, with STL files prepared for fabrication and initial 3D printing processes underway. :contentReference[oaicite:1]{index=1}
+Mechanical analysis performed in SolidWorks confirmed that the required joint torques fall within the operating range of the selected actuators, supporting the feasibility of the design. Additionally, CAD models were completed and refined, with STL files prepared for fabrication and initial 3D printing processes underway.
 
-On the software side, computer vision capabilities were explored using both classical and deep learning approaches. HSV-based color detection and shape detection using OpenCV were successfully implemented for basic object recognition. More advanced detection was achieved by training a YOLOv8 model on labeled image data, which demonstrated real-time object detection capability. :contentReference[oaicite:2]{index=2}
+On the software side, computer vision capabilities were explored using both classical and deep learning approaches. HSV-based color detection and shape detection using OpenCV were successfully implemented for basic object recognition. More advanced detection was achieved by training a YOLOv8 model on labeled image data, which demonstrated real-time object detection capability.
 
-Kinematic modeling was also initiated using ROS 2 tools, where a URDF model of the robot was created and imported into RViz and MoveIt2. This enabled preliminary testing of forward and inverse kinematics, providing a foundation for future motion planning and control. :contentReference[oaicite:3]{index=3}
+Kinematic modeling was also initiated using ROS 2 tools, where a URDF model of the robot was created and imported into RViz and MoveIt2. This enabled preliminary testing of forward and inverse kinematics, providing a foundation for future motion planning and control.
 
 ### Key Results Summary
 
@@ -102,11 +102,11 @@ Kinematic modeling was also initiated using ROS 2 tools, where a URDF model of t
 
 The results indicate that the project is progressing in a structured and iterative manner, with strong alignment between design, simulation, and implementation. The successful validation of motor torque requirements confirms that the chosen actuators are appropriate, reducing the risk of mechanical failure during operation.
 
-The use of both classical computer vision (HSV detection) and modern deep learning approaches (YOLOv8) provides flexibility in object detection strategies. While HSV detection offers simplicity and low computational cost, it is sensitive to lighting conditions. In contrast, YOLOv8 demonstrates more robust detection but introduces higher computational requirements and longer training times, which was identified as a limitation during development. :contentReference[oaicite:4]{index=4}
+The use of both classical computer vision (HSV detection) and modern deep learning approaches (YOLOv8) provides flexibility in object detection strategies. While HSV detection offers simplicity and low computational cost, it is sensitive to lighting conditions. In contrast, YOLOv8 demonstrates more robust detection but introduces higher computational requirements and longer training times, which was identified as a limitation during development.
 
 The integration of ROS 2 tools such as RViz and MoveIt2 represents an important step toward a more advanced and scalable system. Early implementation of forward and inverse kinematics allows for better validation of the robot’s motion and will support future autonomous control.
 
-However, progress has been impacted by external constraints, particularly limited access to university facilities, which delayed fabrication and physical testing. This has shifted the project focus toward software development, simulation, and system design during early stages. :contentReference[oaicite:5]{index=5}
+However, progress has been impacted by external constraints, particularly limited access to university facilities, which delayed fabrication and physical testing. This has shifted the project focus toward software development, simulation, and system design during early stages.
 
 Despite these challenges, the project demonstrates steady progress through a build–test–learn approach. The combination of validated mechanical design, working simulation models, and initial computer vision implementation provides a strong foundation for upcoming stages, including full system integration, physical testing, and final validation.
 
