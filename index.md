@@ -77,15 +77,24 @@ This section is still under development and will be refined as the project progr
 
 # ● Results
 
-Present measurements, observations, graphs, tables, screenshots, or performance outcomes.
+The project has progressed through several key development stages, including system design, simulation, and initial prototyping efforts. Major components such as the sensing system, motor selection, and vacuum-based end effector have been successfully analyzed and validated through calculations and decision-making frameworks. :contentReference[oaicite:0]{index=0}
 
-Example:
+Mechanical analysis performed in SolidWorks confirmed that the required joint torques fall within the operating range of the selected actuators, supporting the feasibility of the design. Additionally, CAD models were completed and refined, with STL files prepared for fabrication and initial 3D printing processes underway. :contentReference[oaicite:1]{index=1}
 
-| Metric | Target | Actual |
-|--------|--------|--------|
-| Response Time | 2 s | 1.8 s |
-| Accuracy | 95% | 96.2% |
-| Power Use | < 10 W | 8.7 W |
+On the software side, computer vision capabilities were explored using both classical and deep learning approaches. HSV-based color detection and shape detection using OpenCV were successfully implemented for basic object recognition. More advanced detection was achieved by training a YOLOv8 model on labeled image data, which demonstrated real-time object detection capability. :contentReference[oaicite:2]{index=2}
+
+Kinematic modeling was also initiated using ROS 2 tools, where a URDF model of the robot was created and imported into RViz and MoveIt2. This enabled preliminary testing of forward and inverse kinematics, providing a foundation for future motion planning and control. :contentReference[oaicite:3]{index=3}
+
+### Key Results Summary
+
+| Component | Status | Outcome |
+|----------|--------|--------|
+| CAD Design | Completed | Validated geometry and structure |
+| Torque Analysis | Completed | Confirmed motor selection is sufficient |
+| Computer Vision (HSV) | Completed | Basic object detection achieved |
+| Computer Vision (YOLOv8) | In Progress / Tested | Real-time detection demonstrated |
+| ROS 2 (FK/IK) | In Progress | URDF model working in RViz |
+| Fabrication | Started | 3D printing initiated |
 
 # ● Discussion
 
