@@ -64,7 +64,7 @@ This project builds on these technical foundations by developing a pick-and-plac
 ○[Electronics and Control](Hardware_Integration.md)
 
 # ● Computer Vision (Object Detection)
-○ [HSV and colour detection](Object_detection.md)
+○ [HSV and Colour Detection](Object_detection.md)
 
 # ● Testing and Validation
 
