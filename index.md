@@ -103,8 +103,6 @@ The actuation system is based on multiple servo motors selected according to tor
 </p>
 <p align="center"><em>Figure: MG995 Servo Motor</em></p>
 
-*Figure: MG995 Servo Motor*
-
 
 For sensing and object detection, the system integrates a camera connected to the Raspberry Pi. The current design considers either the Raspberry Pi Camera Module, which offers seamless integration and low latency, or a smartphone camera as an alternative for higher image quality. The camera provides real-time visual feedback, which is processed using computer vision and AI techniques to identify and locate objects for pick-and-place operations.
 <p align="center">
