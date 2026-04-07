@@ -6,4 +6,7 @@ The robot was designed with practicality in mind, so all parts could be made usi
 
 ● Off-the-shelf components
 
-STL Files
+[STL Files](STL.zip)
+
+## ● Assembly
+The system was designed to be modular and easy to put together. The 3D printed parts are assembled using standard fasteners to form the main structure, and components like motors and electronics are integrated in a way that keeps everything accessible. This makes the overall assembly process straightforward and also allows for quick adjustments, repairs, or upgrades as the project evolves.
