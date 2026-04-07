@@ -67,6 +67,7 @@ This project builds on these technical foundations by developing a pick-and-plac
 ○ [HSV and Colour Detection](Object_detection.md)
 
 # ● Testing and Validation
+This section is still under development and will be refined as the project progresses. The approach will follow a systematic and iterative process, where testing, data collection, and analysis guide improvements. Experiments will be conducted to evaluate system performance, with results used to inform design adjustments and optimize functionality. The overall workflow will follow a build–measure–learn cycle, allowing continuous refinement based on real-world observations and performance data.
 
 ○ [Testing Procedure](Testing_Procedure.md)
 
