@@ -55,29 +55,24 @@ This project builds on these technical foundations by developing a pick-and-plac
 
 # ● Methods
 
-[○ System Design](System_Design.md)
+○[System Design](System_Design.md)
 
-[○ Simulation and Analysis](Simulation_and_Analysis.md)
+○[Simulation and Analysis](Simulation_and_Analysis.md)
 
-[○ Prototyping and Fabrication](Prototyping_and_Fabrication.md)
+○[Prototyping and Fabrication](Prototyping_and_Fabrication.md)
 
-[○ Electronics and Control](Hardware_Integration.md)
+○[Electronics and Control](Hardware_Integration.md)
 
-### ● Object detection
+# ● Computer Vision (Object Detection)
 ○ [HSV and colour detection](Object_detection.md)
 
-## ○ Testing and Validation
+# ● Testing and Validation
 
-### ● Testing Procedure
-Describe how the system was tested.
+○ [Testing Procedure](Testing_Procedure.md)
 
-### ● Data Collection
-Explain what data was measured and how.
+○ [Data Collection](Data_Collection.md)
 
-### ● Evaluation Criteria
-Define how success was determined.
-
-
+○ [Evaluation Criteria](Evaluation_Criteria.md)
 
 # ● Results
 
@@ -91,8 +86,6 @@ Example:
 | Accuracy | 95% | 96.2% |
 | Power Use | < 10 W | 8.7 W |
 
-
-
 # ● Discussion
 
 Interpret the results. Discuss:
@@ -101,8 +94,6 @@ Interpret the results. Discuss:
 - limitations
 - lessons learned
 - possible future improvements
-
-
 
 # ● Project Management Summary
 The project was organized using a structured team-based approach. Tasks were divided among members based on key areas such as mechanical design, sensors, and control systems.
