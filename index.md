@@ -54,6 +54,7 @@ This project builds on these technical foundations by developing a pick-and-plac
 
 
 # ● Methods
+The project follows a structured engineering approach that moves from design to validation. It begins with system design, where the overall concept is developed and refined based on practical requirements and existing solutions. This is followed by simulation and analysis, where tools like SolidWorks are used to evaluate performance and ensure the design meets mechanical and functional needs. The system is then brought to life through prototyping and fabrication, using methods such as 3D printing and laser cutting to enable rapid iteration. Finally, electronics and control are integrated, combining hardware and software to achieve reliable operation. This step-by-step process allows for continuous improvement, ensuring the final system is both functional and efficient.
 
 ○[System Design](System_Design.md)
 
