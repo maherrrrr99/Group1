@@ -50,79 +50,67 @@ This project builds on these technical foundations by developing a pick-and-plac
 
 # ● Methods
 
-## ○ System Design and Hardware
+## ○ System Design
 
-### ■ Sensing and Signal Architecture
+### ● Concept Development
+Describe how the idea was generated and refined. Include sketches, brainstorming, and design goals.
 
-#### ● System Definition and Primary Sensing
-Explain the sensing requirements, the selected sensors, and why they were chosen.
-
-#### ● Signal Conditioning and Conversion
-Describe filtering, amplification, analog-to-digital conversion, and any preprocessing steps.
-
-#### ● Digital Logic and Data Presentation
-Explain how data is handled digitally and how it is displayed or communicated to users.
-
-
-
-### ■ Actuation and Mechanical Drive
-
-#### ● Fluid Power and Kinematic Chains
-Describe any mechanical linkages, fluid systems, or motion transfer mechanisms.
-
-#### ● Electrical Actuation and Motor Selection
-Explain actuator choice, motor sizing, torque/speed calculations, and design tradeoffs.
-
-#### ● Embedded Controller Selection
-State which controller or microcontroller was selected and justify the choice.
-
----
-
-### ■ Control Logic and Programming
-
-#### ● Firmware Development
-Describe firmware structure, implementation approach, and key functions.
-
-#### ● I/O Interfacing and Industrial Control
-Explain how input/output systems are integrated and controlled.
-
-#### ● Communication and Networking
-Describe communication protocols, data flow, and networking architecture if applicable.
-
----
-
-### ■ Advanced Modeling and Optimization
-
-#### ● Mathematical System Modeling
-Provide the equations, assumptions, and modeling framework used.
-
-#### ● Stability and Feedback Control
-Discuss control loops, stability analysis, and response behavior.
-
-#### ● Intelligent Control and Final Design
-Explain any optimization, intelligent control, or design improvements made.
+### ● CAD Modeling
+Explain how the system/components were designed using CAD software (e.g., SolidWorks, Fusion 360).  
+Include:
+- Key components
+- Assembly design
+- Design constraints
 
 
 
-## ○ Testing
+## ○ Simulation and Analysis
 
-### ■ Prototype Construction
+### ● Mechanical / Structural Simulation
+Describe simulations performed (stress, strain, motion, etc.).
 
-#### ● Initial Design
-Describe the first prototype and its main features.
+### ● Electrical / System Simulation
+Explain any circuit simulations, signal behavior, or system-level modeling.
 
-#### ● Final Design
-Describe the improved version and major changes from the initial design.
+### ● Performance Evaluation
+Discuss expected performance based on simulations.
 
 
 
-### ■ Final Integration and Demonstration
+## ○ Prototyping and Fabrication
 
-#### ● Testing Environment
-Explain where and how the system was tested.
+### ● Manufacturing Process
+Explain how parts were made:
+- 3D printing
+- CNC machining
+- Laser cutting
+- Off-the-shelf components
 
-#### ● Success / Fail or Pass Criteria
-List the criteria used to evaluate the project.
+### ● Assembly
+Describe how components were put together.
+
+
+
+## ○ Electronics and Control
+
+### ● Hardware Integration
+Describe sensors, actuators, wiring, and system layout.
+
+### ● Programming and Control
+Explain the code, logic, and control strategy used.
+
+
+
+## ○ Testing and Validation
+
+### ● Testing Procedure
+Describe how the system was tested.
+
+### ● Data Collection
+Explain what data was measured and how.
+
+### ● Evaluation Criteria
+Define how success was determined.
 
 
 
@@ -152,8 +140,11 @@ Interpret the results. Discuss:
 
 
 # ● Project Management Summary
-
-Summarize planning, execution, milestones, teamwork, and progress management.
+The project was organized using a structured team-based approach. Tasks were divided among members based on key areas such as mechanical design, sensors, and control systems.
+ 
+The team followed clear milestones, starting from research and concept development to CAD design and preparation for prototyping. Regular meetings were held to track progress, discuss challenges, and make design decisions.
+ 
+Strong teamwork and communication allowed effective collaboration and integration of all system components. The project is currently progressing from the design phase to prototyping and testing.
 
 ## ○ Gantt Chart *Updated*
 Add your updated Gantt chart here.
