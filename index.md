@@ -56,7 +56,7 @@ This project builds on these technical foundations by developing a pick-and-plac
 The concept development process was iterative and systematic, building on existing literature and proven industrial designs rather than trying to reinvent the wheel. The goal was to adapt known pick-and-place mechanisms into a compact, efficient system that meets our specific needs. Throughout the design process, we focused on keeping the structure simple, durable, and practical, while also making sure it could be manufactured easily and affordably in a lab setting using tools like laser cutting and 3D printing. Another key consideration was compatibility with widely available, off-the-shelf components such as MG995 servo motors and Arduino-based control systems, which helped keep costs low and integration straightforward. Design decisions were guided by requirements like strength, reliability, and repeatability, while working within constraints such as limited resources and fabrication methods. The end result is a compact, robust design that can withstand repeated use without compromising performance.
 
 ### ● CAD Modeling
-![Industrial Pick and Place Robot](Images/combined_clean.png)
+![CAD Rendering](Images/combined_clean.png)
 - [CAD (SolidWorks) ](CAD_SolidWorks.zip)
 - [STEP File](assembly.STEP)
 
@@ -67,6 +67,7 @@ The concept development process was iterative and systematic, building on existi
 
 ### ● Mechanical
 A mechanical analysis was performed in SolidWorks Motion Study to estimate the required torque at each joint throughout the robot’s movement. The simulation incorporated gravity effects and defined motor-driven joints to replicate realistic operating conditions. A predefined motion profile was applied to guide the arm through a representative pick-and-place cycle, allowing the software to compute the dynamic loads and torque demands over time. The results show peak torque values of approximately 165 N·mm at critical points in the motion. These values fall within the operating capabilities of the selected MG995 servo motors, confirming that the motor selection is appropriate for the intended application. Overall, the analysis validates that the system can operate reliably without overloading the actuators.
+![Simulation Results ](Images/torque_analysis.png)
 
 ### ● Electrical / System Simulation
 Explain any circuit simulations, signal behavior, or system-level modeling.
