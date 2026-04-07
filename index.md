@@ -51,6 +51,7 @@ This project builds on these technical foundations by developing a pick-and-plac
 # ● Methods
 
 [○ System Design](System_Design.md)
+
 [○ Simulation and Analysis](Simulation_and_Analysis.md)
 ## ○ Prototyping and Fabrication
 
