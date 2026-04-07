@@ -1,7 +1,6 @@
-# ● Title
+# ● Smart Pick and Place Robot
 
-**Project Name:** _Smart Pick and Place Robot_
-
+## MEC483 - Mechatronic System Design 
 
 # ● Team Members
 
