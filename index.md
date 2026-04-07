@@ -51,33 +51,7 @@ This project builds on these technical foundations by developing a pick-and-plac
 # ● Methods
 
 [○ System Design](System_Design.md)
-
-### ● Concept Development
-The concept development process was iterative and systematic, building on existing literature and proven industrial designs rather than trying to reinvent the wheel. The goal was to adapt known pick-and-place mechanisms into a compact, efficient system that meets our specific needs. Throughout the design process, we focused on keeping the structure simple, durable, and practical, while also making sure it could be manufactured easily and affordably in a lab setting using tools like laser cutting and 3D printing. Another key consideration was compatibility with widely available, off-the-shelf components such as MG995 servo motors and Arduino-based control systems, which helped keep costs low and integration straightforward. Design decisions were guided by requirements like strength, reliability, and repeatability, while working within constraints such as limited resources and fabrication methods. The end result is a compact, robust design that can withstand repeated use without compromising performance.
-
-### ● CAD Modeling
-![CAD Rendering](Images/combined_clean.png)
-- [CAD (SolidWorks) ](CAD_SolidWorks.zip)
-- [STEP File](assembly.STEP)
-
-
-
-
-## ○ Simulation and Analysis
-
-### ● Mechanical
-A mechanical analysis was performed in SolidWorks Motion Study to estimate the required torque at each joint throughout the robot’s movement. The simulation incorporated gravity effects and defined motor-driven joints to replicate realistic operating conditions. A predefined motion profile was applied to guide the arm through a representative pick-and-place cycle, allowing the software to compute the dynamic loads and torque demands over time. The results show peak torque values of approximately 165 N·mm at critical points in the motion. These values fall within the operating capabilities of the selected MG995 servo motors, confirming that the motor selection is appropriate for the intended application. Overall, the analysis validates that the system can operate reliably without overloading the actuators.
-![Simulation Results ](Images/torque_analysis.png)
-
-### ● Kinematics (FK and IK)
-Forward kinematics (FK) was implemented and visualized in RViz using ROS 2 to model the robot’s motion and verify link transformations. By defining the robot’s geometry and joint relationships, the end-effector position could be determined for given joint angles, allowing us to confirm that the arm reaches the desired workspace and behaves as expected. This also helped with debugging the overall structure and ensuring consistency between the CAD model and the software representation. In addition to FK, inverse kinematics (IK) will be implemented to enable the robot to compute the required joint angles for a desired end-effector position. This will allow for more intuitive control of the system, particularly for pick-and-place tasks where target positions are defined in Cartesian space.
-![Robot Demo](Images/video.gif)
-
-### ● Performance Evaluation
-Discuss expected performance based on simulations.
-
-
-
+[○ Simulation and Analysis](Simulation_and_Analysis.md)
 ## ○ Prototyping and Fabrication
 
 ### ● Manufacturing Process
