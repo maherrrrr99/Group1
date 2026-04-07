@@ -58,7 +58,7 @@ The concept development process was iterative and systematic, building on existi
 ### ● CAD Modeling
 ![Industrial Pick and Place Robot](Images/combined_clean.png)
 - [CAD (SolidWorks) ](CAD_SolidWorks.zip)
-- [STEP File)](assembly.STEP)
+- [STEP File](assembly.STEP)
 
 
 
