@@ -5,6 +5,7 @@ The concept development process was iterative and systematic, building on existi
 
 ### ● CAD Modeling
 ![CAD Rendering](Images/combined_clean.png)
+
 Figure 1: CAD Model in home and extended position.
 - [CAD (SolidWorks) ](CAD_SolidWorks.zip)
 - [STEP File](assembly.STEP)
