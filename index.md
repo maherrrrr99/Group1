@@ -106,7 +106,7 @@ The actuation system is based on multiple servo motors selected according to tor
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <img src="https://raw.githubusercontent.com/maherrrrr99/Group1/main/Images/sg90%20micro%20servo.jpg" width="170"/>
 
-<br><br>
+<br>
 
 <em>Figure: MG995 Servo Motor (left), 20 kg·cm High-Torque Servo (center), and SG90 Micro Servo (right)</em>
 
