@@ -56,11 +56,8 @@ This project builds on these technical foundations by developing a pick-and-plac
 Describe how the idea was generated and refined. Include sketches, brainstorming, and design goals.
 
 ### ● CAD Modeling
-Explain how the system/components were designed using CAD software (e.g., SolidWorks, Fusion 360).  
-Include:
-- Key components
-- Assembly design
-- Design constraints
+![Industrial Pick and Place Robot](Images/combined_clean.png)
+
 
 
 
