@@ -98,17 +98,7 @@ In terms of hardware layout and wiring, the servo motors are connected to the Ar
 
 
 ### ● Object detection
-HSV and colour detection.
- This was used for objects like the ball to easily classify them, this makes it easier to isolate specific colours under different lighting conditions. In the project, the camera feed was converted to HSV using OpenCV, and a colour range (upper and lower HSV values) was defined to create a mask that highlights only the desired colour. This mask was then used to detect and track objects of that colour in real time.
-<img width="1203" height="648" alt="image" src="https://github.com/user-attachments/assets/a9c9cd89-73f7-4c54-8a27-1210375d48d5" />
-Training a yolov8 model
-The classification process involved training a custom object detection model using YOLOv8 within PyCharm. First, image data for the objects was collected, labeled, and organized into training folders with corresponding annotation files. A configuration file (config.yaml) was created to define the dataset paths and class names. The model was then trained over multiple epochs, where it repeatedly processed the images, compared its predictions to the actual labels, and adjusted its internal parameters to improve accuracy. Performance metrics such as precision and recall were used to evaluate how well the model was learning. Finally, the trained model was tested using a live camera feed, where each frame was processed in real time, detections were made based on confidence thresholds, and bounding boxes with labels were displayed on the screen.
-<img width="1002" height="525" alt="image" src="https://github.com/user-attachments/assets/d1a561c7-6305-4cf3-b6e3-6e5aa2bb7df7" />
-This image illustrates the annotation process carried out using CVAT, where a nut has been manually labelled with a bounding box. The bounding box is carefully drawn to tightly enclose the nut, ensuring that only the relevant object is captured while minimizing background noise. This precision is important because it helps the model learn the exact shape, size, and visual features of the nut. Each annotated object is assigned a class label, in this case nut, which is converted into a numerical class ID during training so the model can differentiate between multiple object types, such as eggs, nuts and bolts. By repeating this process across many images with varying positions, scales, and lighting conditions, a high-quality labelled dataset is created. This structured data is then used to train the YOLOv8 model, enabling it to accurately detect and classify nuts in new, unseen images or live camera input.
-<img width="1368" height="671" alt="image" src="https://github.com/user-attachments/assets/73b894e8-8401-479b-b833-b929e4c2d04e" />
-
-
-
+○ HSV and colour detection
 
 ## ○ Testing and Validation
 
