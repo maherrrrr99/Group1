@@ -1,6 +1,6 @@
 # ● Smart Pick and Place Robot
 
-## MEC483 - Mechatronic System Design 
+MEC483 - Mechatronic System Design 
 
 # ● Team Members
 
