@@ -43,9 +43,10 @@ Previous work in this area has shown the value of hybrid manipulation systems. O
  
 The same study also emphasized that robotic performance is not only dependent on intelligent control models, but also strongly constrained by the physical hardware, especially the end-effector design. This is highly relevant to our project, since our pick-and-place robot also aims to handle a variety of objects using a hybrid gripper and suction mechanism. Their work provides strong support for the idea that combining multiple gripping methods leads to more adaptable and capable robotic systems.
 
-![Hybrid Suction Mechanism](Images/Hybrid_Gripper.jpg)
-
-Figure 2: Hybrid coaxial suction and gripper end-effector.
+<p align="center">
+  <img src="Images/Hybrid_Gripper.jpg" width="500"/>
+</p>
+<p align="center"><em>Figure 2: Hybrid Coaxial Suction and Gripper End-Effector</em></p>
  
 In addition to hardware design, recent advancements in mechatronics and intelligent robotics have enabled the integration of mechanical systems, electronics, embedded control, and computer vision into a single platform. Robotic arms commonly use actuators such as stepper motors and servos for position control, while microcontrollers and embedded computers such as Arduino and Raspberry Pi are used for coordination, sensing, and processing. At the same time, vision-guided robotics has become increasingly important. By integrating cameras with computer vision and artificial intelligence techniques, robots can identify, classify, and locate objects in real time, allowing more autonomous and adaptive operation.
  
