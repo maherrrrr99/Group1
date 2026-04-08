@@ -66,7 +66,7 @@ The project follows a structured engineering approach that moves from design to 
 ○[Electronics and Control](Hardware_Integration.md)
 
 # ● Computer Vision (Object Detection)
-○ [HSV and Colour Detection](Colour_Detection.md)
+○ [HSV and Colour Detection](Colour_detection.md)
 
 ○ [Object Detection](Object_detection.md)
 
