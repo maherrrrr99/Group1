@@ -66,6 +66,7 @@ The project follows a structured engineering approach that moves from design to 
 ○[Electronics and Control](Hardware_Integration.md)
 
 # ● Computer Vision (Object Detection)
+Computer vision is used to help the system see and recognize objects in images or videos. HSV colour detection makes it easier to spot colours even when lighting changes, and object detection helps identify and locate the important items clearly.
 ○ [HSV and Colour Detection](Colour_Detection.md)
 
 ○ [Object Detection](Object_detection.md)
