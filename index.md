@@ -32,9 +32,10 @@ The expected outcome is a fully integrated mechatronic pick-and-place robotic sy
 
 Pick-and-place robots are widely used in modern industrial applications such as assembly lines, packaging systems, warehouses, and automated sorting environments. These systems improve productivity, precision, and safety by reducing repetitive human involvement and increasing operational efficiency. However, many conventional pick-and-place robots are designed for specific tasks and struggle when handling objects with different shapes, sizes, surface properties, and fragility.
 
-![Industrial Pick and Place Robot](Images/Picking_robot.jpg)
-
-Figure 1: Industrial pick and place robot.
+<p align="center">
+  <img src="Images/Picking_robot.jpg" width="500"/>
+</p>
+<p align="center"><em>Figure 1: Industrial Pick-and-Place Robot</em></p>
  
 A major challenge in robotic manipulation is the design of the end effector, since it directly determines what kinds of objects the robot can handle. Traditional parallel grippers are commonly used because they are simple, effective, and easy to control. They can grasp many rigid objects, but they are limited when dealing with very thin, fragile, flat, or handleless objects. On the other hand, vacuum suction systems are highly effective for flat and smooth surfaces, but they perform poorly on porous, irregular, or non-sealable materials. Because of these limitations, recent research has explored multi-functional and hybrid end-effectors that combine gripping and suction in one design.
  
