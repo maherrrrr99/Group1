@@ -66,8 +66,9 @@ The project follows a structured engineering approach that moves from design to 
 ○[Electronics and Control](Hardware_Integration.md)
 
 # ● Computer Vision (Object Detection)
-○ [HSV and Colour Detection](Object_detection.md)
-○ [Object Detection]
+○ [HSV and Colour Detection](Colour_Detection.md)
+
+○ [Object Detection](Object_detection.md)
 
 # ● Testing and Validation
 This section is still under development and will be refined as the project progresses. The approach will follow a systematic and iterative process, where testing, data collection, and analysis guide improvements. Experiments will be conducted to evaluate system performance, with results used to inform design adjustments and optimize functionality. The overall workflow will follow a build–measure–learn cycle, allowing continuous refinement based on real-world observations and performance data.
