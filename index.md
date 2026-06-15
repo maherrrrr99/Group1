@@ -409,7 +409,13 @@ The IK workspace validation confirmed 100% solver reachability across the operat
 The project was organized across four subsystem streams — mechanical, electrical, software, and system integration — with weekly progress reviews and clear ownership per member.
 
 ## Gantt Chart
-[View the updated Gantt Chart](https://studentsaduac-my.sharepoint.com/:x:/g/personal/1087993_students_adu_ac_ae/IQDgdSjexyc-QrslRSKR7R1VAezfRiBIHZJzDOwBOP83DMI?e=OvQYwN&nav=MTVfezAwMDAwMDAwLTAwMDEtMDAwMC0wMDAwLTAwMDAwMDAwMDAwMH0)
+
+<p align="center">
+  <img src="Images/Gantt_Chart_Render.png" width="900"/>
+</p>
+<p align="center"><em>Initial project plan — task timeline and milestone schedule across the semester</em></p>
+
+[View the live updated Gantt Chart](https://studentsaduac-my.sharepoint.com/:x:/g/personal/1087993_students_adu_ac_ae/IQDgdSjexyc-QrslRSKR7R1VAezfRiBIHZJzDOwBOP83DMI?e=OvQYwN&nav=MTVfezAwMDAwMDAwLTAwMDEtMDAwMC0wMDAwLTAwMDAwMDAwMDAwMH0)
 
 ---
 
