@@ -98,9 +98,12 @@ Kinematic modeling was also initiated using ROS 2 tools, where a URDF model of t
 | CAD Design | Completed | Validated geometry and structure |
 | Torque Analysis | Completed | Confirmed motor selection is sufficient |
 | Computer Vision (HSV) | Completed | Basic object detection achieved |
-| Computer Vision (YOLOv8) | In Progress / Tested | Real-time detection demonstrated |
-| ROS 2 (FK/IK) | In Progress | URDF model working in RViz |
-| Fabrication | Started | 3D printing initiated |
+| Computer Vision (YOLOv8) | Completed | Real-time detection on Raspberry Pi |
+| ROS 2 (FK/IK) | Completed | URDF model working in RViz |
+| Fabrication | Completed | Arm assembled and tested |
+| Hardware Integration | Completed | Arduino, Pi, and laptop fully connected |
+| Interactive Website | Completed | Web-based manual and autonomous control |
+| Pick-and-Place Pipeline | Completed | End-to-end autonomous operation demonstrated |
 
 ---
 
@@ -138,11 +141,39 @@ Strong teamwork and communication allowed effective collaboration and integratio
 ## ○ Gantt Chart
 [View the updated Gantt Chart](https://studentsaduac-my.sharepoint.com/:x:/g/personal/1087993_students_adu_ac_ae/IQCVl5X-gnVOTbJbda9AOzVBAQxvkQVJ4Exoq-0edEJwLJE?e=tAfXTX&wdLOR=cD9B9CDF9-E9B2-46DC-981F-AE0154DF6142)
 
+# ● Code and Software
+
+○ [Computer Vision Scripts](Computer_Vision/) — YOLO sender, Raspberry Pi receiver, arm calibration
+
+○ [Arduino Sketch](Arduino/2_motors_arduino_noross.ino) — Motor and gripper control
+
+○ [Interactive Website](Website/arm-controller/) — Web-based robot control interface
+
+○ [YOLO Training Results](Computer_Vision/Training_Results/train27/) — Model weights and metrics
+
+○ [Dataset Labels](Dataset/labels/) — Annotated training labels
+
 # ● Appendix
 ○[Progress Report - Week 2](Files/Progress-W2.pdf)
 
 ○[Progress Report - Week 3](Files/Progress-W3.pdf)
 
-○[Progress Report - Week 4](File/Progress-W4.pdf)
+○[Progress Report - Week 4](Files/Progress-W4.pdf)
 
 ○[Progress Report - Week 5](Files/Progress-W5.pdf)
+
+○[Progress Report - Week 5 (slides)](Files/Progress-W5.pptx)
+
+○[Progress Report - Week 6](Files/Progress-W6.pdf)
+
+○[Progress Report - Week 6 (slides)](Files/Progress-W6.pptx)
+
+○[Progress Report - Week 7 (slides)](Files/Progress-W7.pptx)
+
+○[Progress Report - Week 8 (slides)](Files/Progress-W8.pptx)
+
+○[Progress Report - Week 10](Files/Progress-W10.pdf)
+
+○[Progress Report - Week 11 (slides)](Files/Progress-W11.pptx)
+
+○[Progress Report - Week 12 (slides)](Files/Progress-W12.pptx)
