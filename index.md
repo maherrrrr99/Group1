@@ -10,12 +10,10 @@
 
 ## Team Members
 
-| Name | Role |
-|------|------|
-| [Maher Abo Abed](https://maherrrrr99.github.io/maherrrrr99/) | Project Lead · Embedded Systems · Mechanical Design · IK/ROS 2 |
-| [Sabeeha Zainab Hasham](https://sabeehahasham.github.io/) | Computer Vision · Dataset · YOLOv8 Training · Pi Deployment |
-| [Basel Feras Ghunaim](https://basel-ghunaim.github.io/) | CAD Modelling · Simulation · Fabrication |
-| [Ahmed Nasser Alshehhi](https://ahmed1090822.github.io/Ahmed109.github.io/) | Control System · System Integration · GitHub Management |
+- [Maher Abo Abed](https://maherrrrr99.github.io/maherrrrr99/)
+- [Sabeeha Zainab Hasham](https://sabeehahasham.github.io/)
+- [Basel Feras Ghunaim](https://basel-ghunaim.github.io/)
+- [Ahmed Nasser Alshehhi](https://ahmed1090822.github.io/Ahmed109.github.io/)
 
 ---
 
