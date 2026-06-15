@@ -144,7 +144,29 @@ An IK pipeline was built with **ROS 2 Humble** and **MoveIt 2**, using the KDL s
 </p>
 <p align="center"><em>URDF robot simulation — motion planning in RViz</em></p>
 
-- [URDF Model File](Files/urdf.urdf)
+### ROS Package
+
+The full ROS 2 package is included in the [`ROS/`](ROS/) directory:
+
+| File / Folder | Description |
+|---------------|-------------|
+| [`ROS/urdf/ros.urdf`](ROS/urdf/ros.urdf) | URDF kinematic model of the arm |
+| [`ROS/meshes/`](ROS/meshes/) | STL meshes for each link (base, elbow, wrist, arm, end effector) |
+| [`ROS/launch/display.launch`](ROS/launch/display.launch) | RViz visualisation launch file |
+| [`ROS/launch/gazebo.launch`](ROS/launch/gazebo.launch) | Gazebo simulation launch file |
+| [`ROS/config/joint_names_ros.yaml`](ROS/config/joint_names_ros.yaml) | Joint name configuration |
+| [`ROS/package.xml`](ROS/package.xml) | ROS package manifest |
+| [`ROS/CMakeLists.txt`](ROS/CMakeLists.txt) | Package build configuration |
+
+```bash
+# Visualise the arm in RViz
+ros2 launch ros display.launch
+
+# Run in Gazebo simulation
+ros2 launch ros gazebo.launch
+```
+
+- [URDF Model File (legacy)](Files/urdf.urdf)
 
 ---
 
