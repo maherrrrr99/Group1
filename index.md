@@ -48,12 +48,12 @@ The final system is a **3-DOF robotic arm** mounted on a **differential-drive mo
 <p align="center">
   <img src="Images/arm_and_platform.png" width="650"/>
 </p>
-<p align="center"><em>Fully assembled arm mounted on the 30 cm acrylic laser-cut platform</em></p>
+<p align="center"><em>Fig 1: Fully assembled arm mounted on the 30 cm acrylic laser-cut platform</em></p>
 
 <p align="center">
   <img src="Images/Hardware.jpg" width="650"/>
 </p>
-<p align="center"><em>Complete hardware setup — electronics, arm, platform, and camera</em></p>
+<p align="center"><em>Fig 2: Complete hardware setup — electronics, arm, platform, and camera</em></p>
 
 ### Workspace Envelope
 
@@ -76,12 +76,12 @@ The robot was modelled entirely in SolidWorks. All structural components — bas
 <p align="center">
   <img src="Images/combined_clean.png" width="680"/>
 </p>
-<p align="center"><em>CAD model — home position (left) and fully extended position (right)</em></p>
+<p align="center"><em>Fig 3: CAD model — home position (left) and fully extended position (right)</em></p>
 
 <p align="center">
   <img src="Images/Unknown_torque_simulation.png" width="620"/>
 </p>
-<p align="center"><em>SolidWorks Motion Study — torque simulation with 250 g payload confirms motor selection</em></p>
+<p align="center"><em>Fig 4: SolidWorks Motion Study — torque simulation with 250 g payload confirms motor selection</em></p>
 
 The torque simulation confirmed that the MG995 servos (rated ~11 kg·cm at 6 V) comfortably cover the worst-case joint loads when the arm is fully extended with a 250 g object, validating the actuator selection before any physical parts were built.
 
@@ -98,7 +98,7 @@ The end-effector uses a **rack-and-pinion mechanical gripper** combined with a *
 <p align="center">
   <img src="Images/gripper_design.jpg" width="580"/>
 </p>
-<p align="center"><em>3D-printed hybrid gripper — rack-and-pinion jaws (bottom) and suction cup (top)</em></p>
+<p align="center"><em>Fig 5: 3D-printed hybrid gripper — rack-and-pinion jaws (bottom) and suction cup (top)</em></p>
 
 | Mode | Best For | Control |
 |------|----------|---------|
@@ -116,16 +116,16 @@ The kinematic chain (`base_link → elbow_link → wrist_link → arm_link → e
 <p align="center">
   <img src="Images/FK.png" width="650"/>
 </p>
-<p align="center"><em>Forward kinematics visualisation in RViz — joint slider control</em></p>
+<p align="center"><em>Fig 6: Forward kinematics visualisation in RViz — joint slider control</em></p>
 
 ### Inverse Kinematics
 
-An IK pipeline was built with **ROS 2 Humble** and **MoveIt 2**, using the KDL solver configured for **position-only IK** (`position_only_ik: true`). This is appropriate for pick-and-place: the solver computes joint angles for a given (X, Y, Z) target without constraining end-effector orientation. A `workspace_scan.cpp` node swept a grid of 40 Cartesian test points and confirmed **100% reachability** across the full operating workspace.
+An IK pipeline was built with **ROS 2 Humble** and **MoveIt 2**, using the KDL solver configured for **position-only IK** (`position_only_ik: true`). This is appropriate for pick-and-place: the solver computes joint angles for a given (X, Y, Z) target without constraining end-effector orientation. A `workspace_scan.cpp` node swept a of 40 Cartesian test points and confirmed **100% reachability** across the full operating workspace.
 
 <p align="center">
   <img src="Images/IK.png" width="650"/>
 </p>
-<p align="center"><em>Inverse kinematics — workspace scan in RViz confirming 100% reachability over 40 test points</em></p>
+<p align="center"><em>Fig 7: Inverse kinematics — workspace scan in RViz confirming 100% reachability over 40 test points</em></p>
 
 #### Validated Reachable Points (sample)
 
@@ -140,7 +140,7 @@ An IK pipeline was built with **ROS 2 Humble** and **MoveIt 2**, using the KDL s
 <p align="center">
   <img src="Images/video.gif" width="580"/>
 </p>
-<p align="center"><em>URDF robot simulation — motion planning in RViz</em></p>
+<p align="center"><em>Fig 8: URDF robot simulation — motion planning in RViz</em></p>
 
 ### ROS Package
 
@@ -181,12 +181,12 @@ All grounds are tied to a single common bus to prevent electrical noise from hig
 <p align="center">
   <img src="Images/Electrical_block_diagram.jpg" width="680"/>
 </p>
-<p align="center"><em>Final electrical block diagram</em></p>
+<p align="center"><em>Fig 9: Final electrical block diagram</em></p>
 
 <p align="center">
   <img src="Images/Electrical_schematic.jpg" width="680"/>
 </p>
-<p align="center"><em>Electrical schematic — red: 12–6 V power, black: ground, blue: servo signals, orange: 5 V VCC</em></p>
+<p align="center"><em>Fig 10: Electrical schematic — red: 12–6 V power, black: ground, blue: servo signals, orange: 5 V VCC</em></p>
 
 ### Power Budget Summary
 
@@ -219,7 +219,7 @@ All major components were chosen using weighted decision matrices (scored 1–5)
   &nbsp;&nbsp;&nbsp;
   <img src="https://raw.githubusercontent.com/maherrrrr99/Group1/main/Images/sg90%20micro%20servo.jpg" width="155"/>
 </div>
-<p align="center"><em>MG995 (left) · 20 kg·cm High-Torque Servo (center) · SG90 Micro Servo (right)</em></p>
+<p align="center"><em>Fig 11: MG995 (left) · 20 kg·cm High-Torque Servo (center) · SG90 Micro Servo (right)</em></p>
 
 ---
 
@@ -234,12 +234,12 @@ Five object classes were targeted: **egg, nut, bolt, compass, and ball**. Egg im
 <p align="center">
   <img src="Images/egg_nut_dataset.png" width="650"/>
 </p>
-<p align="center"><em>Sample images from the custom egg and nut datasets</em></p>
+<p align="center"><em>Fig 12: Sample images from the custom egg and nut datasets</em></p>
 
 <p align="center">
   <img src="Images/Egg_annotation.png" width="650"/>
 </p>
-<p align="center"><em>CVAT bounding box annotations — each egg in the frame produces one row of YOLO coordinates</em></p>
+<p align="center"><em>Fig 13: CVAT bounding box annotations — each egg in the frame produces one row of YOLO coordinates</em></p>
 
 ### YOLOv8 Training
 
@@ -248,7 +248,7 @@ The model was trained for **100 epochs** in PyCharm using the Ultralytics YOLOv8
 <p align="center">
   <img src="Images/model_training.png" width="680"/>
 </p>
-<p align="center"><em>YOLOv8 training curves — loss, precision, recall, and mAP over 100 epochs</em></p>
+<p align="center"><em>Fig 14: YOLOv8 training curves — loss, precision, recall, and mAP over 100 epochs</em></p>
 
 ### HSV Colour Calibration
 
@@ -257,7 +257,7 @@ HSV filtering was implemented for green ball detection using OpenCV. The HSV col
 <p align="center">
   <img src="Images/HSV_CALIBRATION.png" width="650"/>
 </p>
-<p align="center"><em>HSV calibration tool — adjustable LH/LS/LV/UH/US/UV sliders with live binary mask preview</em></p>
+<p align="center"><em>Fig 15: HSV calibration tool — adjustable LH/LS/LV/UH/US/UV sliders with live binary mask preview</em></p>
 
 ### Deployment on Raspberry Pi
 
@@ -266,12 +266,12 @@ After desktop validation in PyCharm, the model and scripts were transferred to t
 <p align="center">
   <img src="Images/camera_test_frame.jpg" width="580"/>
 </p>
-<p align="center"><em>Test frame from the live Raspberry Pi camera stream</em></p>
+<p align="center"><em>Fig 16: Test frame from the live Raspberry Pi camera stream</em></p>
 
 <p align="center">
   <img src="Images/detection_on_Pi.png" width="650"/>
 </p>
-<p align="center"><em>YOLOv8 running on Raspberry Pi — real-time multi-class detection with confidence scores</em></p>
+<p align="center"><em>Fig 17: YOLOv8 running on Raspberry Pi — real-time multi-class detection with confidence scores</em></p>
 
 ---
 
@@ -282,7 +282,7 @@ The Raspberry Pi receiver (`pi_receiver.py`) implements **autonomous object trac
 <p align="center">
   <img src="Images/tracking_correct.gif" width="680"/>
 </p>
-<p align="center"><em>Live demonstration — platform autonomously tracking and centring on a detected object</em></p>
+<p align="center"><em>Fig 18: Live demonstration — platform autonomously tracking and centring on a detected object</em></p>
 
 **Tracking parameters (safe defaults):**
 
@@ -304,22 +304,22 @@ A full web control interface was built using **Vite + Web Serial API**, providin
 <p align="center">
   <img src="Images/Website_1.png" width="720"/>
 </p>
-<p align="center"><em>Main control panel</em></p>
+<p align="center"><em>Fig 19: Main control panel</em></p>
 
 <p align="center">
   <img src="Images/website_2.png" width="720"/>
 </p>
-<p align="center"><em>Joint sliders with calibrated physical-degree-to-PWM conversion</em></p>
+<p align="center"><em>Fig 20: Joint sliders with calibrated physical-degree-to-PWM conversion</em></p>
 
 <p align="center">
   <img src="Images/website_3.png" width="720"/>
 </p>
-<p align="center"><em>Platform directional controls and live camera feed</em></p>
+<p align="center"><em>Fig 21: Platform directional controls and live camera feed</em></p>
 
 <p align="center">
   <img src="Images/website_4.png" width="720"/>
 </p>
-<p align="center"><em>Connection settings — USB Serial, Bluetooth, or Autonomous Network mode</em></p>
+<p align="center"><em>Fig 22: Connection settings — USB Serial, Bluetooth, or Autonomous Network mode</em></p>
 
 **Key features:**
 - Elbow and wrist sliders show **physical degrees** and convert to calibrated PWM ticks before sending
@@ -344,7 +344,7 @@ npm run dev
 <p align="center">
   <img src="Images/system_testing.gif" width="720"/>
 </p>
-<p align="center"><em>Full system integration test — detection, tracking, arm movement, and pick sequence</em></p>
+<p align="center"><em>Fig 23: Full system integration test — detection, tracking, arm movement, and pick sequence</em></p>
 
 Testing was conducted at both subsystem and full-system level:
 
