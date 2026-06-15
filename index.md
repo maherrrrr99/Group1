@@ -260,7 +260,7 @@ After desktop validation in PyCharm, the model and scripts were transferred to t
 The Raspberry Pi receiver (`pi_receiver.py`) implements **autonomous object tracking** using the YOLOv8 position data from the laptop. When tracking is active, the platform steers left or right to centre the detected object in the camera frame, then moves forward or backward to reach the target distance. The shoulder joint is effectively replaced by the platform's differential-drive yaw — a deliberate design simplification that reduced the arm from 4-DOF to 3-DOF while preserving full workspace coverage.
 
 <p align="center">
-  <img src="Images/platform_tracking.gif" width="680"/>
+  <img src="Images/tracking_correct.gif" width="680"/>
 </p>
 <p align="center"><em>Live demonstration — platform autonomously tracking and centring on a detected object</em></p>
 
