@@ -275,6 +275,30 @@ After desktop validation in PyCharm, the model and scripts were transferred to t
 
 ---
 
+## Distance Estimation
+
+To determine when the robot is close enough to initiate a pickup, the vision system estimates object distance from the camera using each object's known physical size. Because no depth sensor is used, distance is inferred from how large the object appears in pixels — as the object grows larger in the frame, the robot is getting closer; as it shrinks, it is moving further away.
+
+The focal calibration value is computed using a reference measurement at a known distance:
+
+$$F = \frac{D_{\text{known}} \times W_{\text{pixel}}}{W_{\text{real}}}$$
+
+Each object class uses an appropriate dimension: the ball uses its diameter, the compass uses its outer width, the nut uses its bounding box width, and the egg uses its major axis height. To handle momentary detection gaps, a memory-based tracker holds the last valid detection for a short number of frames, keeping the distance output stable. The on-screen label **STABLE** confirms the object has been consistently detected across several successive frames, making the displayed distance reliable.
+
+<p align="center">
+  <img src="Images/ball_distance.png" width="680"/>
+</p>
+<p align="center"><em>Green ball detection with real-time distance estimation</em></p>
+
+<p align="center">
+  <img src="Images/compass_distance.png" width="680"/>
+</p>
+<p align="center"><em>Compass detection with real-time distance estimation</em></p>
+
+> **Note:** Distance values are approximate unless calibrated against known reference distances for each object class and camera setup. Camera resolution, lens position, and experimental setup all affect the focal calibration value.
+
+---
+
 ## Platform Autonomous Tracking
 
 The Raspberry Pi receiver (`pi_receiver.py`) implements **autonomous object tracking** using the YOLOv8 position data from the laptop. When tracking is active, the platform steers left or right to centre the detected object in the camera frame, then moves forward or backward to reach the target distance. The shoulder joint is effectively replaced by the platform's differential-drive yaw — a deliberate design simplification that reduced the arm from 4-DOF to 3-DOF while preserving full workspace coverage.
@@ -389,16 +413,33 @@ The hybrid gripper design handled both rigid (nuts, bolts) and delicate (eggs) o
 
 The IK workspace validation confirmed 100% solver reachability across the operating envelope, closing the loop from a Cartesian vision output to PWM joint commands on the physical arm.
 
-### Lessons Learned
+### Version 2.0 — Lessons Learned
 
-| Challenge | Impact | Resolution |
-|----------|--------|------------|
-| Shoulder joint found redundant during assembly | Reduced to 3-DOF arm | Platform yaw delivers equivalent rotation — fewer parts, less weight |
-| Servo jitter on unused PCA9685 channels | Signal noise | Unused channels disabled in firmware |
-| Initial MoveIt IK failure (`tool0` root link conflict) | IK solver crash | Removed extra root link from URDF export |
-| Pi Camera driver issues on Ubuntu | Camera not detected | Switched to Logitech C270 USB webcam |
-| Servo power sag under load | Arduino reset | Isolated 5 V logic rail from 6 V actuator rail |
-| Long YOLOv8 training cycles | Slow iteration | Dataset cleaned and epoch count tuned to 100 |
+If this project were repeated, the following improvements would be made based on direct experience:
+
+**1. Maintain Backup Options for Critical Components**
+Evaluate alternative components before final procurement. The initial camera had to be replaced after testing revealed driver incompatibilities — identifying a compatible backup in advance would have saved significant development time.
+
+**2. Ensure Mechanical Alignment and Precision**
+Misalignment in joints directly impacts placement accuracy. Careful tolerance control during 3D printing and assembly reduces the need for repeated reprints and iterative calibration.
+
+**3. Allocate Sufficient Time for System Integration**
+Hardware–software integration consistently takes longer than expected due to compatibility issues. Reserving dedicated integration and troubleshooting time at the end of the project is essential.
+
+**4. Improve Cable Management**
+Mechanical stress on wires during arm movement led to intermittent faults. Strain relief mechanisms should be designed in from the start to improve reliability and reduce rework.
+
+**5. Test in Realistic Conditions Early**
+Individual subsystem tests did not catch all issues that appeared during full system integration. HSV colour thresholds in particular must be calibrated in the actual operating environment, not on a test bench. Repeated pick-and-place cycles are needed to surface performance issues.
+
+**6. Prototype Critical Features Early**
+The gripper mechanism caused integration difficulties that would have been identified sooner with earlier prototyping. Key subsystems should be validated for full-system fit before other resources are committed.
+
+**7. Maintain Detailed Documentation Throughout**
+Recording design decisions, wiring diagrams, and code changes throughout development significantly simplifies troubleshooting and knowledge transfer. Gaps in documentation slowed debugging when problems arose late in integration.
+
+**8. Invest in Higher-Quality Materials and Components**
+Higher-quality components improve durability, precision, and reliability. Investing in better materials reduces long-term maintenance, prevents premature failure, and avoids costly late-stage redesigns.
 
 ---
 
@@ -429,7 +470,13 @@ The project was organized across four subsystem streams — mechanical, electric
 
 ---
 
-## Appendix — Progress Reports
+## Appendix
+
+### Final Report
+
+[📄 Final Report — Group 1 (PDF)](Files/Final_Report_Group1.pdf)
+
+### Progress Reports
 
 | Week | Format |
 |------|--------|
