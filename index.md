@@ -1,389 +1,419 @@
-# ● Smart Pick and Place Robot
+# Smart Pick-and-Place Robot
+### MEC483 — Mechatronic System Design · Spring 2025–2026
+#### College of Engineering · Instructor: Dr. Claudio Vignola
 
-MEC483 - Mechatronic System Design
-
-# ● Team Members
-
-- [Maher Abo Abed](https://maherrrrr99.github.io/maherrrrr99/)
-- [Sabeeha Zainab Hasham](https://sabeehahasham.github.io/)
-- [Basel Feras Ghunaim](https://basel-ghunaim.github.io/)
-- [Ahmed Nasser Alshehhi](https://ahmed1090822.github.io/Ahmed109.github.io/)
+<p align="center">
+  <img src="Images/assembled_arm.png" width="680"/>
+</p>
 
 ---
 
-# ● Problem Statement
+## Team Members
 
-Modern industries increasingly rely on automation for sorting and handling tasks, yet many existing pick-and-place systems are limited in flexibility and adaptability. Traditional systems are often designed to handle a single type of object or require precise positioning, making them inefficient when dealing with objects of varying shapes, sizes, and fragility such as bolts, eggs, or flat items like CDs.
-
-This limitation creates a significant gap in applications where diverse objects must be handled within the same system, such as small-scale manufacturing, educational platforms, and adaptable production environments. Additionally, many systems lack integrated vision capabilities, reducing their ability to operate autonomously in dynamic or unstructured environments.
-
-As a result, there is a need for a more versatile and intelligent pick-and-place solution that can accurately detect, classify, and manipulate different types of objects without manual intervention. Addressing this gap will improve efficiency, reduce human involvement, and demonstrate the potential of integrating mechanical systems with vision-based intelligence in modern mechatronic applications.
-
----
-
-# ● Abstract
-
-This project addresses the growing need for efficient and intelligent automation in object sorting and handling tasks. Many existing systems lack flexibility when dealing with objects of different shapes, sizes, and fragility, creating a demand for more adaptable pick-and-place robotic solutions.
-
-To address this challenge, this project focuses on the design and development of a smart, autonomous pick-and-place robot capable of identifying, picking, and placing various objects such as bolts, nuts, eggs, stress balls, and CDs into designated locations. The system integrates a camera and a Raspberry Pi to enable vision-based object detection, eliminating the need for manual intervention and allowing for intelligent, real-time decision-making. A hybrid end-effector combining mechanical gripping and vacuum suction is used to enhance versatility and reliability when handling diverse objects.
-
-The development follows a structured engineering methodology, progressing from system definition to advanced implementation stages. The robot integrates mechanical design, electrical systems, and control engineering, including stepper motors, sensors, Arduino-based control, and AI-supported vision processing. The design process is supported through CAD modeling, component selection, and iterative prototyping.
-
-The expected outcome is a fully integrated mechatronic pick-and-place robotic system capable of autonomous operation with improved accuracy, efficiency, and adaptability. This project demonstrates the integration of mechanical, electrical, and intelligent systems, reflecting real-world applications in modern industrial automation.
+| Name | Role |
+|------|------|
+| [Maher Abo Abed](https://maherrrrr99.github.io/maherrrrr99/) | Project Lead · Embedded Systems · Mechanical Design · IK/ROS 2 |
+| [Sabeeha Zainab Hasham](https://sabeehahasham.github.io/) | Computer Vision · Dataset · YOLOv8 Training · Pi Deployment |
+| [Basel Feras Ghunaim](https://basel-ghunaim.github.io/) | CAD Modelling · Simulation · Fabrication |
+| [Ahmed Nasser Alshehhi](https://ahmed1090822.github.io/Ahmed109.github.io/) | Control System · System Integration · GitHub Management |
 
 ---
 
-# ● The Robot
+## Problem Statement
 
-The final system is a 4-DOF robotic arm mounted on a motorized mobile platform. The arm integrates a hybrid end-effector capable of both mechanical gripping and vacuum suction, allowing it to handle a wide variety of objects. A Raspberry Pi processes camera input using YOLOv8 object detection, communicates with a laptop for heavier inference, and sends control commands to an Arduino which drives the servo motors and suction pump in real time.
+Modern manufacturing and automation systems demand fast, accurate, and reliable object handling. Manual pick-and-place operations are slow, prone to human error, and unsuitable for repetitive, high-precision tasks. Traditional robotic systems are typically designed to work with objects in fixed locations and cannot adapt to changing environments.
 
-<p align="center">
-  <img src="Images/assembled_arm.png" width="600"/>
-</p>
-<p align="center"><em>Figure: Assembled robotic arm</em></p>
+To tackle these challenges, this project builds a **Smart Pick-and-Place Robotic System** with integrated computer vision. The system automatically identifies objects in a workspace, determines their positions, and commands a robotic arm to pick and place them — entirely without human intervention. It combines sensing, image processing, embedded control, and mechanical actuation into a smart, efficient automation solution.
 
-<p align="center">
-  <img src="Images/arm_and_platform.png" width="600"/>
-</p>
-<p align="center"><em>Figure: Arm mounted on the motorized platform</em></p>
+### Impact
 
-<p align="center">
-  <img src="Images/Hardware.jpg" width="600"/>
-</p>
-<p align="center"><em>Figure: Full hardware setup</em></p>
+The system demonstrates the application of mechatronic engineering principles through the tight integration of mechanical, electrical, control, and computer engineering subsystems. By embedding computer vision directly into the robotic arm pipeline, the system improves detection precision and reduces reliance on manual handling. The platform also serves as a foundation for future developments in advanced object recognition and fully autonomous industrial robotics.
 
----
+### Design Criteria
 
-# ● Background - Literature Review
-
-Pick-and-place robots are widely used in modern industrial applications such as assembly lines, packaging systems, warehouses, and automated sorting environments. These systems improve productivity, precision, and safety by reducing repetitive human involvement and increasing operational efficiency. However, many conventional pick-and-place robots are designed for specific tasks and struggle when handling objects with different shapes, sizes, surface properties, and fragility.
-
-<p align="center">
-  <img src="Images/Picking_robot.jpg" width="500"/>
-</p>
-<p align="center"><em>Figure: Industrial Pick-and-Place Robot</em></p>
-
-A major challenge in robotic manipulation is the design of the end effector, since it directly determines what kinds of objects the robot can handle. Traditional parallel grippers are commonly used because they are simple, effective, and easy to control. They can grasp many rigid objects, but they are limited when dealing with very thin, fragile, flat, or handleless objects. On the other hand, vacuum suction systems are highly effective for flat and smooth surfaces, but they perform poorly on porous, irregular, or non-sealable materials. Because of these limitations, recent research has explored multi-functional and hybrid end-effectors that combine gripping and suction in one design.
-
-Previous work in this area has shown the value of hybrid manipulation systems. One important example is a recent study proposing a low-cost integrated end-effector that combines a two-finger gripper with a vacuum suction unit. That work was developed to overcome the limitations of standard grippers in tasks such as opening handleless drawers, lifting thin glass-like objects, and manipulating boxes or containers. The researchers showed that hybrid end-effectors can perform tasks that are not feasible with conventional grippers alone.
-
-<p align="center">
-  <img src="Images/Hybrid_Gripper.jpg" width="500"/>
-</p>
-<p align="center"><em>Figure: Hybrid Coaxial Suction and Gripper End-Effector</em></p>
-
-In addition to hardware design, recent advancements in mechatronics and intelligent robotics have enabled the integration of mechanical systems, electronics, embedded control, and computer vision into a single platform. Robotic arms commonly use actuators such as stepper motors and servos for position control, while microcontrollers and embedded computers such as Arduino and Raspberry Pi are used for coordination, sensing, and processing. At the same time, vision-guided robotics has become increasingly important. By integrating cameras with computer vision and artificial intelligence techniques, robots can identify, classify, and locate objects in real time, allowing more autonomous and adaptive operation.
-
-This project builds on these technical foundations by developing a pick-and-place robot that integrates mechanical gripping, vacuum suction, sensors, camera-based detection, and embedded control into one mechatronic system.
+| # | Criterion | Goal |
+|---|-----------|------|
+| CR-1 | Object Detection Accuracy | Reliable identification of eggs, nuts, bolts, balls, and compasses |
+| CR-2 | Pick-and-Place Success Rate | Consistent end-to-end cycle completion |
+| CR-3 | Positioning Accuracy | Precise placement with minimal offset |
+| CR-4 | Response Time | Low-latency vision-to-motion pipeline |
+| CR-5 | Payload Capacity | Handle objects up to 250 g |
+| CR-6 | Repeatability | Consistent performance across multiple cycles |
+| CR-7 | Workspace Coverage | Full reach over the 30 cm platform footprint |
 
 ---
 
-# ● Methods
+## The Robot
 
-The project follows a structured engineering approach that moves from design to validation. It begins with system design, where the overall concept is developed and refined based on practical requirements and existing solutions. This is followed by simulation and analysis, where tools like SolidWorks are used to evaluate performance and ensure the design meets mechanical and functional needs. The system is then brought to life through prototyping and fabrication, using methods such as 3D printing and laser cutting to enable rapid iteration. Finally, electronics and control are integrated, combining hardware and software to achieve reliable operation.
+The final system is a **3-DOF robotic arm** mounted on a **differential-drive mobile platform**. The arm integrates a hybrid end-effector combining a rack-and-pinion mechanical gripper and a vacuum suction cup, enabling it to handle a wide variety of object shapes and textures. A Logitech C270 webcam feeds a live stream to a laptop running YOLOv8; detections are relayed over TCP to a Raspberry Pi 4 which sends joint commands to an Arduino Uno controlling the servo motors and suction pump.
 
-○ [System Design](System_Design.md)
+<p align="center">
+  <img src="Images/arm_and_platform.png" width="650"/>
+</p>
+<p align="center"><em>Fully assembled arm mounted on the 30 cm acrylic laser-cut platform</em></p>
 
-○ [Simulation and Analysis](Simulation_and_Analysis.md)
+<p align="center">
+  <img src="Images/Hardware.jpg" width="650"/>
+</p>
+<p align="center"><em>Complete hardware setup — electronics, arm, platform, and camera</em></p>
 
-○ [Prototyping and Fabrication](Prototyping_and_Fabrication.md)
+### Workspace Envelope
 
-○ [Electronics and Control](Hardware_Integration.md)
+| Measurement | Value |
+|-------------|-------|
+| Platform diameter (home footprint) | 30 cm |
+| Extended arm reach beyond platform edge | ~16.5 cm |
+| Maximum reach to lowest point (incl. suction cup) | **~22 cm** |
+| Maximum horizontal reach (height unconstrained) | **~26 cm** |
+| IK solver validated range — X | 0.05 – 0.20 m |
+| IK solver validated range — Y | −0.10 – 0.10 m |
+| IK solver validated range — Z | 0.02 – 0.07 m |
 
 ---
 
-# ● CAD Design
+## CAD Design
 
-The robot was modeled in SolidWorks, covering all structural components including the base, shoulder, elbow, wrist, and end-effector. The CAD model was used to verify clearances, plan the assembly sequence, and generate STL files for 3D printing. The design was kept modular so individual parts could be reprinted and replaced without rebuilding the entire structure.
-
-<p align="center">
-  <img src="Images/combined_clean.png" width="650"/>
-</p>
-<p align="center"><em>Figure: CAD model — home position (left) and extended position (right)</em></p>
+The robot was modelled entirely in SolidWorks. All structural components — base, elbow, wrist, end-effector — were designed for 3D printing in PLA on a Raise3D E2 printer, with servo pockets and horn-mounting features printed accurately at each joint. The platform chassis was laser-cut from acrylic for flatness and rigidity, ensuring accurate motor alignment for differential drive.
 
 <p align="center">
-  <img src="Images/Unknown_torque_simulation.png" width="600"/>
+  <img src="Images/combined_clean.png" width="680"/>
 </p>
-<p align="center"><em>Figure: SolidWorks torque simulation results</em></p>
+<p align="center"><em>CAD model — home position (left) and fully extended position (right)</em></p>
 
-- [CAD Files (SolidWorks)](CAD_SolidWorks.zip)
-- [STEP File](assembly.STEP)
+<p align="center">
+  <img src="Images/Unknown_torque_simulation.png" width="620"/>
+</p>
+<p align="center"><em>SolidWorks Motion Study — torque simulation with 250 g payload confirms motor selection</em></p>
+
+The torque simulation confirmed that the MG995 servos (rated ~11 kg·cm at 6 V) comfortably cover the worst-case joint loads when the arm is fully extended with a 250 g object, validating the actuator selection before any physical parts were built.
+
+- [SolidWorks CAD Files](CAD_SolidWorks.zip)
+- [STEP Assembly File](assembly.STEP)
 - [STL Files for 3D Printing](STL.zip)
 
 ---
 
-# ● Gripper Design
+## Gripper Design
 
-The end-effector uses a hybrid design that combines a two-finger mechanical gripper with a vacuum suction cup. This allows the robot to handle a diverse range of objects: the mechanical gripper is used for rigid items like nuts and bolts, while the suction cup handles flat or smooth-surfaced objects like CDs or eggs. Both mechanisms are mounted coaxially so they can work independently without repositioning the arm.
+The end-effector uses a **rack-and-pinion mechanical gripper** combined with a **vacuum suction cup**, both 3D-printed in PLA. The pinion is attached directly to the output shaft of an SG90 servo, driving two symmetric linear racks that open and close the jaws. The suction cup is mounted coaxially on top of the gripper casing, connected to a 6 V DC air pump via a relay on Arduino pin D10 — allowing either gripping mode to be used independently based on the object type.
 
 <p align="center">
-  <img src="Images/gripper_design.jpg" width="550"/>
+  <img src="Images/gripper_design.jpg" width="580"/>
 </p>
-<p align="center"><em>Figure: Hybrid gripper design — mechanical fingers and suction cup</em></p>
+<p align="center"><em>3D-printed hybrid gripper — rack-and-pinion jaws (bottom) and suction cup (top)</em></p>
 
-The suction pump is controlled through a relay on Arduino pin D10. The commands `SUCTION_CUP_ON` and `SUCTION_CUP_OFF` energize and release the relay respectively. The gripper servo is driven by an SG90 micro servo, providing lightweight and precise open/close control.
+| Mode | Best For | Control |
+|------|----------|---------|
+| Mechanical gripper | Nuts, bolts, rigid objects | SG90 servo via PCA9685 |
+| Vacuum suction | Eggs, flat surfaces, smooth objects | DC pump via relay on Arduino D10 |
 
 ---
 
-# ● Kinematics
+## Kinematics
 
-## Forward Kinematics (FK)
+### Forward Kinematics
 
-Forward kinematics was implemented and visualized in RViz using ROS 2. A URDF model of the robot was created from the SolidWorks geometry, defining all link lengths and joint axes. By specifying joint angles, the end-effector position can be computed and validated against the physical robot. This confirmed that the workspace is sufficient for the intended pick-and-place tasks and that the kinematic model matches the fabricated arm.
-
-<p align="center">
-  <img src="Images/FK.png" width="600"/>
-</p>
-<p align="center"><em>Figure: Forward kinematics visualization in RViz</em></p>
-
-## Inverse Kinematics (IK)
-
-Inverse kinematics allows the robot to compute the required joint angles for a given end-effector position in Cartesian space. This is essential for autonomous pick-and-place operation where the target location is provided as an (x, y, z) coordinate by the vision system. IK was implemented and tested using MoveIt2, and the results were validated against the forward kinematics model.
+The kinematic chain (`base_link → elbow_link → wrist_link → arm_link → end_link`) was modelled in URDF, exported from SolidWorks STL meshes. The URDF was validated in `robot_state_publisher` and visualised in RViz, confirming correct link orientation, joint hierarchy, and workspace geometry. Joint sliders were used to command each joint independently and verify that the forward kinematics matched the physical arm's motion.
 
 <p align="center">
-  <img src="Images/IK.png" width="600"/>
+  <img src="Images/FK.png" width="650"/>
 </p>
-<p align="center"><em>Figure: Inverse kinematics solution in RViz / MoveIt2</em></p>
+<p align="center"><em>Forward kinematics visualisation in RViz — joint slider control</em></p>
+
+### Inverse Kinematics
+
+An IK pipeline was built with **ROS 2 Humble** and **MoveIt 2**, using the KDL solver configured for **position-only IK** (`position_only_ik: true`). This is appropriate for pick-and-place: the solver computes joint angles for a given (X, Y, Z) target without constraining end-effector orientation. A `workspace_scan.cpp` node swept a grid of 40 Cartesian test points and confirmed **100% reachability** across the full operating workspace.
 
 <p align="center">
-  <img src="Images/video.gif" width="550"/>
+  <img src="Images/IK.png" width="650"/>
 </p>
-<p align="center"><em>Figure: Robot motion simulation using the URDF model</em></p>
+<p align="center"><em>Inverse kinematics — workspace scan in RViz confirming 100% reachability over 40 test points</em></p>
 
-- [URDF file](Files/urdf.urdf)
+#### Validated Reachable Points (sample)
+
+| X (m) | Y (m) | Z (m) | Result |
+|--------|--------|--------|--------|
+| 0.05 | 0.00 | 0.02 | ✅ Reachable |
+| 0.10 | 0.05 | 0.07 | ✅ Reachable |
+| 0.20 | 0.10 | 0.07 | ✅ Reachable |
+| 0.15 | −0.05 | 0.04 | ✅ Reachable |
+| 0.08 | −0.10 | 0.05 | ✅ Reachable |
+
+<p align="center">
+  <img src="Images/video.gif" width="580"/>
+</p>
+<p align="center"><em>URDF robot simulation — motion planning in RViz</em></p>
+
+- [URDF Model File](Files/urdf.urdf)
 
 ---
 
-# ● Electrical System
+## Electrical System
 
-The electrical system connects all hardware subsystems: the Raspberry Pi (high-level processing), the Arduino (real-time motor control), the servo motors, the suction pump relay, and the motorized platform. Power distribution is handled with separate supplies for logic and motors to prevent interference.
+The electrical architecture is split across three voltage rails to keep logic and power isolated:
+
+- **12 V** — main Li-ion battery pack (12 V, 3000 mAh, 36 Wh)
+- **6 V** — buck converter output for all actuators (servos, DC motors, air pump)
+- **5 V** — regulated supply for Arduino, Raspberry Pi, Bluetooth module, and all signal lines
+
+All grounds are tied to a single common bus to prevent electrical noise from high-current motor and servo wiring from interfering with signal lines.
 
 <p align="center">
-  <img src="Images/Electrical_block_diagram.jpg" width="650"/>
+  <img src="Images/Electrical_block_diagram.jpg" width="680"/>
 </p>
-<p align="center"><em>Figure: Electrical block diagram</em></p>
+<p align="center"><em>Final electrical block diagram</em></p>
 
 <p align="center">
-  <img src="Images/Electrical_schematic.jpg" width="650"/>
+  <img src="Images/Electrical_schematic.jpg" width="680"/>
 </p>
-<p align="center"><em>Figure: Electrical schematic</em></p>
+<p align="center"><em>Electrical schematic — red: 12–6 V power, black: ground, blue: servo signals, orange: 5 V VCC</em></p>
 
-The actuation system uses:
-- **MG995 servo motors** (270°) for base and shoulder joints
-- **20 kg·cm high-torque servo** (270°) for the elbow joint
-- **SG90 micro servo** (180°) for the gripper
-- **Relay module** on Arduino D10 for suction pump control
-- **HC-05 Bluetooth module** for optional wireless manual control
+### Power Budget Summary
+
+| Subsystem | Voltage | Peak Current | Peak Power |
+|-----------|---------|-------------|------------|
+| MG995 Servo × 2 (Wrist + Elbow) | 6 V | 2.0 A each | 12.0 W each |
+| SG90 Servo (Gripper) | 6 V | 650 mA | 3.9 W |
+| DC Motor × 2 (Platform) | 6 V | 1.2 A each | 7.2 W each |
+| DC Air Pump | 6 V | 400 mA | 2.4 W |
+| Raspberry Pi 4 | 5 V | 1.2 A | 6.0 W |
+| Arduino Uno | 5 V | 80 mA | 0.4 W |
+| **6 V Rail Total (peak)** | 6 V | **7.45 A** | **44.7 W** |
+| **Estimated runtime (normal use)** | — | — | **~4 hours** |
+
+### Component Selection
+
+All major components were chosen using weighted decision matrices (scored 1–5). Key results:
+
+| Component | Selected | Score | Runner-up |
+|-----------|----------|-------|-----------|
+| Microcontroller | Arduino UNO | 4.20 | ESP32 (3.70) |
+| Camera | Logitech C270 | 4.85 | InnoMaker USB (2.75) |
+| Mini-computer | Raspberry Pi 4 | 4.60 | NVIDIA Jetson Nano (2.60) |
+| Arm actuator | MG995 / SG90 Servo | 4.30 | DC Motor + Gearbox (2.80) |
 
 <div align="center">
-  <img src="https://raw.githubusercontent.com/maherrrrr99/Group1/main/Images/MG995%20Motor.webp" width="160"/>
+  <img src="https://raw.githubusercontent.com/maherrrrr99/Group1/main/Images/MG995%20Motor.webp" width="155"/>
   &nbsp;&nbsp;&nbsp;
-  <img src="https://raw.githubusercontent.com/maherrrrr99/Group1/main/Images/20%20kg%C2%B7cm%20high-torque%20servo%20motor.jpg" width="160"/>
+  <img src="https://raw.githubusercontent.com/maherrrrr99/Group1/main/Images/20%20kg%C2%B7cm%20high-torque%20servo%20motor.jpg" width="155"/>
   &nbsp;&nbsp;&nbsp;
-  <img src="https://raw.githubusercontent.com/maherrrrr99/Group1/main/Images/sg90%20micro%20servo.jpg" width="160"/>
+  <img src="https://raw.githubusercontent.com/maherrrrr99/Group1/main/Images/sg90%20micro%20servo.jpg" width="155"/>
 </div>
-<p align="center"><em>Figure: MG995 (left), 20 kg·cm High-Torque Servo (center), SG90 Micro Servo (right)</em></p>
+<p align="center"><em>MG995 (left) · 20 kg·cm High-Torque Servo (center) · SG90 Micro Servo (right)</em></p>
 
 ---
 
-# ● Computer Vision (Object Detection)
+## Computer Vision
 
-The vision pipeline runs YOLOv8 on a laptop for object detection and streams commands to the Raspberry Pi. A camera module connected to the Pi captures a live MJPEG video feed which is processed in real time to identify objects, estimate their position, and trigger the pick-and-place sequence.
+The vision pipeline combines **YOLOv8 deep learning** with **HSV colour filtering** for a hybrid detection system — accuracy of machine learning with the speed and simplicity of colour-based processing.
 
-○ [HSV and Colour Detection](Colour_Detection.md)
+### Dataset & Annotation
 
-○ [Object Detection](Object_detection.md)
-
-## Dataset and Annotation
-
-A custom dataset was assembled and annotated with objects relevant to the pick-and-place task: eggs, nuts, and stress balls. Images were collected under different lighting conditions and annotated using bounding boxes.
+Five object classes were targeted: **egg, nut, bolt, compass, and ball**. Egg images were sourced from the Open Images Dataset; compass images were captured manually; nut and bolt datasets were partially sourced from Roboflow and partially captured in-lab. All images were annotated in **CVAT** with bounding boxes, exported in YOLO 1.1 format, and split 80/20 into training and validation sets.
 
 <p align="center">
-  <img src="Images/egg_nut_dataset.png" width="600"/>
+  <img src="Images/egg_nut_dataset.png" width="650"/>
 </p>
-<p align="center"><em>Figure: Sample images from the custom egg and nut dataset</em></p>
+<p align="center"><em>Sample images from the custom egg and nut datasets</em></p>
 
 <p align="center">
-  <img src="Images/Egg_annotation.png" width="600"/>
+  <img src="Images/Egg_annotation.png" width="650"/>
 </p>
-<p align="center"><em>Figure: Annotated bounding boxes on egg samples</em></p>
+<p align="center"><em>CVAT bounding box annotations — each egg in the frame produces one row of YOLO coordinates</em></p>
 
-## Model Training
+### YOLOv8 Training
 
-The YOLOv8 model was trained on the annotated dataset. Training was monitored using loss curves and precision/recall metrics. The final model (`best.pt`) achieved reliable detection of the target objects under varied lighting and background conditions.
+The model was trained for **100 epochs** in PyCharm using the Ultralytics YOLOv8 framework on the annotated custom dataset. Training monitored precision, recall, and mAP. The resulting `best.pt` weights were used for all subsequent testing and deployment.
 
 <p align="center">
-  <img src="Images/model_training.png" width="650"/>
+  <img src="Images/model_training.png" width="680"/>
 </p>
-<p align="center"><em>Figure: YOLOv8 training results — loss and metrics over epochs</em></p>
+<p align="center"><em>YOLOv8 training curves — loss, precision, recall, and mAP over 100 epochs</em></p>
 
-## HSV Colour Calibration
+### HSV Colour Calibration
 
-HSV-based colour detection was used as an initial detection approach and for calibration purposes. The HSV colour space is more robust to lighting changes than RGB, making it well suited for detecting coloured objects in variable lab conditions.
+HSV filtering was implemented for green ball detection using OpenCV. The HSV colour space separates colour from brightness, making it robust to lighting variation. An interactive calibration tool with live trackbars was used to determine optimal threshold values.
 
 <p align="center">
-  <img src="Images/HSV_CALIBRATION.png" width="600"/>
+  <img src="Images/HSV_CALIBRATION.png" width="650"/>
 </p>
-<p align="center"><em>Figure: HSV calibration interface for colour-based detection</em></p>
+<p align="center"><em>HSV calibration tool — adjustable LH/LS/LV/UH/US/UV sliders with live binary mask preview</em></p>
 
-## Live Detection on Raspberry Pi
+### Deployment on Raspberry Pi
 
-After training, the model was deployed on the Raspberry Pi pipeline. The laptop runs `laptop_yolo_sender.py` which processes the MJPEG stream, detects objects in real time, and sends position data to the Pi receiver over TCP.
+After desktop validation in PyCharm, the model and scripts were transferred to the Raspberry Pi 4. Required dependencies (Ultralytics, OpenCV, NumPy, PyYAML, libcamera) were installed on Ubuntu. The Logitech C270 webcam was integrated and resolution was tuned to balance detection accuracy against processing speed.
 
 <p align="center">
-  <img src="Images/camera_test_frame.jpg" width="550"/>
+  <img src="Images/camera_test_frame.jpg" width="580"/>
 </p>
-<p align="center"><em>Figure: Camera test frame from the Raspberry Pi stream</em></p>
+<p align="center"><em>Test frame from the live Raspberry Pi camera stream</em></p>
 
 <p align="center">
-  <img src="Images/detection_on_Pi.png" width="600"/>
+  <img src="Images/detection_on_Pi.png" width="650"/>
 </p>
-<p align="center"><em>Figure: Real-time YOLOv8 detection running in the pipeline</em></p>
+<p align="center"><em>YOLOv8 running on Raspberry Pi — real-time multi-class detection with confidence scores</em></p>
 
 ---
 
-# ● Interactive Website
+## Platform Autonomous Tracking
 
-A web-based control interface was developed to allow both manual and autonomous control of the robot. The website connects to the robot either over USB serial, Bluetooth (HC-05), or via the Raspberry Pi network bridge, allowing full remote control of all joints, the gripper, and the platform.
+The Raspberry Pi receiver (`pi_receiver.py`) implements **autonomous object tracking** using the YOLOv8 position data from the laptop. When tracking is active, the platform steers left or right to centre the detected object in the camera frame, then moves forward or backward to reach the target distance. The shoulder joint is effectively replaced by the platform's differential-drive yaw — a deliberate design simplification that reduced the arm from 4-DOF to 3-DOF while preserving full workspace coverage.
+
+<p align="center">
+  <img src="Images/platform_tracking.gif" width="680"/>
+</p>
+<p align="center"><em>Live demonstration — platform autonomously tracking and centring on a detected object</em></p>
+
+**Tracking parameters (safe defaults):**
+
+| Parameter | Value |
+|-----------|-------|
+| Platform speed | `PLATFORM_BOTH_MOTORS_SPEED:SLOW` |
+| Centering dead zone | ±20 px around frame centre (X = 160) |
+| Target approach distance | 25 cm |
+| Distance dead zone | ±4 cm |
+| Tracking command order | Turn to centre → then advance/retreat |
+| Data loss timeout | Platform stops after 1 s without detection |
+
+---
+
+## Interactive Website
+
+A full web control interface was built using **Vite + Web Serial API**, providing both manual and autonomous control modes. The site connects to the robot over USB serial, Bluetooth (HC-05), or through the Raspberry Pi network bridge (`http://192.168.1.62:5001`).
+
+<p align="center">
+  <img src="Images/Website_1.png" width="720"/>
+</p>
+<p align="center"><em>Main control panel</em></p>
+
+<p align="center">
+  <img src="Images/website_2.png" width="720"/>
+</p>
+<p align="center"><em>Joint sliders with calibrated physical-degree-to-PWM conversion</em></p>
+
+<p align="center">
+  <img src="Images/website_3.png" width="720"/>
+</p>
+<p align="center"><em>Platform directional controls and live camera feed</em></p>
+
+<p align="center">
+  <img src="Images/website_4.png" width="720"/>
+</p>
+<p align="center"><em>Connection settings — USB Serial, Bluetooth, or Autonomous Network mode</em></p>
 
 **Key features:**
-- Joint sliders with real-time calibrated angle conversion for elbow and wrist
-- Platform directional controls (forward, backward, left, right, stop)
-- Suction cup on/off toggle
-- Home and emergency stop buttons
-- Autonomous tracking mode toggle (delegates control to the Pi receiver)
-- Live camera feed embedded in the interface
-
-<p align="center">
-  <img src="Images/Website_1.png" width="700"/>
-</p>
-<p align="center"><em>Figure: Website — main control panel</em></p>
-
-<p align="center">
-  <img src="Images/website_2.png" width="700"/>
-</p>
-<p align="center"><em>Figure: Website — joint control and camera feed</em></p>
-
-<p align="center">
-  <img src="Images/website_3.png" width="700"/>
-</p>
-<p align="center"><em>Figure: Website — platform and connection settings</em></p>
-
-<p align="center">
-  <img src="Images/website_4.png" width="700"/>
-</p>
-<p align="center"><em>Figure: Website — autonomous mode interface</em></p>
-
-To run the website locally:
+- Elbow and wrist sliders show **physical degrees** and convert to calibrated PWM ticks before sending
+- Platform controls: forward, backward, left, right, stop, speed preset
+- Suction cup ON / OFF toggle
+- Home position and emergency stop
+- Autonomous tracking toggle (delegates full control to `pi_receiver.py`)
+- Live MJPEG camera feed embedded
 
 ```bash
+# Run the website locally
 cd "Website/arm-controller"
 npm install
 npm run dev
+# Open http://localhost:5173 in Chrome or Edge (required for Web Serial)
 ```
 
-Then open `http://localhost:5173` in Chrome or Edge (required for Web Serial).
+---
+
+## System Testing
+
+<p align="center">
+  <img src="Images/system_testing.gif" width="720"/>
+</p>
+<p align="center"><em>Full system integration test — detection, tracking, arm movement, and pick sequence</em></p>
+
+Testing was conducted at both subsystem and full-system level:
+
+| Test | Method | Outcome |
+|------|--------|---------|
+| Individual servo & joint calibration | Serial command interface, PWM sweep | All joints calibrated; elbow 150–600 ticks, wrist 570–1200 ticks |
+| Motor & encoder verification | Differential drive test on flat surface | Straight-line motion and turning confirmed |
+| YOLOv8 detection accuracy | Live camera, multiple objects, varied lighting | Reliable multi-class detection; confidence threshold tuned |
+| HSV colour detection | Interactive trackbar calibration | Green ball isolated across viewing angles and lighting |
+| IK workspace scan | 40-point Cartesian grid, MoveIt 2 | 100% reachability (40/40 points) |
+| Wireless control link | HC-05 Bluetooth + website | Commands received and executed reliably |
+| Platform autonomous tracking | Live object detection loop | Platform centres and approaches target |
+| Full pick-and-place cycle | End-to-end run with egg and nut | Object detected → platform tracks → arm picks → places |
 
 ---
 
-# ● Testing and Validation
-
-○ [Testing Procedure](Testing_Procedure.md)
-
-○ [Data Collection](Data_Collection.md)
-
-○ [Evaluation Criteria](Evaluation_Criteria.md)
-
----
-
-# ● Results
-
-The system was fully integrated and tested end-to-end. The laptop detects objects in the camera stream using YOLOv8, sends position data to the Raspberry Pi over TCP, and the Pi sends joint commands to the Arduino which drives the arm and platform motors in real time. Manual override is available at all times through the website.
+## Results
 
 ### Key Results Summary
 
 | Component | Status | Outcome |
-|----------|--------|--------|
-| CAD Design | Completed | Validated geometry and structure |
-| Torque Analysis | Completed | Confirmed motor selection is sufficient |
-| Fabrication | Completed | Arm assembled and tested |
-| Computer Vision (HSV) | Completed | Basic object detection achieved |
-| Computer Vision (YOLOv8) | Completed | Real-time detection on Raspberry Pi |
-| ROS 2 (FK/IK) | Completed | URDF model working in RViz and MoveIt2 |
-| Hardware Integration | Completed | Arduino, Pi, and laptop fully connected |
-| Interactive Website | Completed | Web-based manual and autonomous control |
-| Pick-and-Place Pipeline | Completed | End-to-end autonomous operation demonstrated |
+|----------|--------|---------|
+| CAD Design | ✅ Completed | Full SolidWorks model; torque validated at 250 g payload |
+| 3D Printing & Fabrication | ✅ Completed | All arm links, joints, and gripper printed in PLA |
+| Electrical Integration | ✅ Completed | 3-rail power system; common ground; all components wired |
+| Arduino Firmware | ✅ Completed | Joint control, relay, motor driver, serial command interface |
+| Computer Vision (HSV) | ✅ Completed | Green ball detection with interactive calibration |
+| Computer Vision (YOLOv8) | ✅ Completed | 100-epoch custom model; deployed on Raspberry Pi |
+| ROS 2 Forward Kinematics | ✅ Completed | URDF validated in RViz; all joints move correctly |
+| ROS 2 Inverse Kinematics | ✅ Completed | MoveIt 2 KDL solver; 100% reachability over test grid |
+| Interactive Website | ✅ Completed | Full manual and autonomous control via Web Serial |
+| Platform Autonomous Tracking | ✅ Completed | Real-time object following with dead-zone control |
+| Full Pick-and-Place Pipeline | ✅ Completed | End-to-end autonomous operation demonstrated |
 
 ---
 
-# ● Discussion
+## Discussion
 
-The results indicate that the project was completed in a structured and iterative manner, with strong alignment between design, simulation, and implementation. The successful validation of motor torque requirements confirms that the chosen actuators are appropriate and the robot operates without overloading any joint.
+The system was successfully integrated and demonstrated end-to-end autonomous operation. The key architectural decisions — offloading YOLOv8 inference to the laptop, using the Raspberry Pi as a command bridge, and replacing the shoulder joint with platform yaw steering — all proved effective in practice, reducing cost and complexity without limiting capability.
 
-The use of both classical computer vision (HSV detection) and modern deep learning approaches (YOLOv8) provides flexibility in object detection strategies. While HSV detection offers simplicity and low computational cost, it is sensitive to lighting conditions. In contrast, YOLOv8 demonstrates more robust detection but requires more computational resources. Offloading inference to the laptop while the Pi handles control bridging proved to be an effective architecture for this constraint.
+The hybrid gripper design handled both rigid (nuts, bolts) and delicate (eggs) objects without hardware reconfiguration. The dual-mode vision pipeline (YOLOv8 + HSV) provided redundancy: HSV detection is faster and works without the TCP link, while YOLOv8 delivers more robust multi-class identification.
 
-The hybrid gripper design successfully handles both rigid objects (nuts, bolts) and delicate objects (eggs) without hardware changes, validating the core design decision to combine mechanical gripping with vacuum suction in a single coaxial end-effector.
+The IK workspace validation confirmed 100% solver reachability across the operating envelope, closing the loop from a Cartesian vision output to PWM joint commands on the physical arm.
 
-The interactive website proved valuable not only as a manual control interface but also as a debugging and calibration tool during system integration.
+### Lessons Learned
 
-### Key Challenges and Limitations
-
-| Challenge | Impact | Mitigation |
-|----------|--------|-----------|
-| Limited lab access | Delayed prototyping | Focus on simulation and software |
-| High cost of components | Slower decision-making | Careful analysis before selection |
-| Long YOLO training time | Delayed testing cycles | Dataset optimization and iteration |
-| Team coordination constraints | Reduced collaboration | Increased virtual meetings |
+| Challenge | Impact | Resolution |
+|----------|--------|------------|
+| Shoulder joint found redundant during assembly | Reduced to 3-DOF arm | Platform yaw delivers equivalent rotation — fewer parts, less weight |
+| Servo jitter on unused PCA9685 channels | Signal noise | Unused channels disabled in firmware |
+| Initial MoveIt IK failure (`tool0` root link conflict) | IK solver crash | Removed extra root link from URDF export |
+| Pi Camera driver issues on Ubuntu | Camera not detected | Switched to Logitech C270 USB webcam |
+| Servo power sag under load | Arduino reset | Isolated 5 V logic rail from 6 V actuator rail |
+| Long YOLOv8 training cycles | Slow iteration | Dataset cleaned and epoch count tuned to 100 |
 
 ---
 
-# ● Project Management Summary
+## Project Management
 
-The project was organized using a structured team-based approach. Tasks were divided among members based on key areas such as mechanical design, sensors, and control systems.
+The project was organized across four subsystem streams — mechanical, electrical, software, and system integration — with weekly progress reviews and clear ownership per member.
 
-The team followed clear milestones, starting from research and concept development to CAD design and preparation for prototyping. Regular meetings were held to track progress, discuss challenges, and make design decisions.
-
-## ○ Gantt Chart
+## Gantt Chart
 [View the updated Gantt Chart](https://studentsaduac-my.sharepoint.com/:x:/g/personal/1087993_students_adu_ac_ae/IQCVl5X-gnVOTbJbda9AOzVBAQxvkQVJ4Exoq-0edEJwLJE?e=tAfXTX&wdLOR=cD9B9CDF9-E9B2-46DC-981F-AE0154DF6142)
 
 ---
 
-# ● Code and Software
+## Code & Software
 
-○ [Computer Vision Scripts](Computer_Vision/) — YOLO sender, Raspberry Pi receiver, arm calibration
-
-○ [Arduino Sketch](Arduino/2_motors_arduino_noross.ino) — Motor and gripper control
-
-○ [Interactive Website](Website/arm-controller/) — Web-based robot control interface
-
-○ [YOLO Training Results](Computer_Vision/Training_Results/train27/) — Model weights and metrics
-
-○ [Dataset Labels](Dataset/labels/) — Annotated training labels
+| Resource | Description |
+|----------|-------------|
+| [Computer Vision Scripts](Computer_Vision/) | `laptop_yolo_sender.py`, `pi_receiver.py`, `arm_calibration.py` |
+| [Arduino Sketch](Arduino/2_motors_arduino_noross.ino) | Joint control, motor driver, relay, serial interface |
+| [Interactive Website](Website/arm-controller/) | Vite web app — manual and autonomous robot control |
+| [YOLO Training Results](Computer_Vision/Training_Results/train27/) | `best.pt` weights, loss curves, confusion matrix |
+| [Dataset Labels](Dataset/labels/) | YOLO 1.1 format bounding box annotations |
 
 ---
 
-# ● Appendix
+## Appendix — Progress Reports
 
-○ [Progress Report - Week 2](Files/Progress-W2.pdf)
-
-○ [Progress Report - Week 3](Files/Progress-W3.pdf)
-
-○ [Progress Report - Week 4](Files/Progress-W4.pdf)
-
-○ [Progress Report - Week 5](Files/Progress-W5.pdf)
-
-○ [Progress Report - Week 5 (slides)](Files/Progress-W5.pptx)
-
-○ [Progress Report - Week 6](Files/Progress-W6.pdf)
-
-○ [Progress Report - Week 6 (slides)](Files/Progress-W6.pptx)
-
-○ [Progress Report - Week 7 (slides)](Files/Progress-W7.pptx)
-
-○ [Progress Report - Week 8 (slides)](Files/Progress-W8.pptx)
-
-○ [Progress Report - Week 10](Files/Progress-W10.pdf)
-
-○ [Progress Report - Week 11 (slides)](Files/Progress-W11.pptx)
-
-○ [Progress Report - Week 12 (slides)](Files/Progress-W12.pptx)
+| Week | Format |
+|------|--------|
+| [Week 2](Files/Progress-W2.pdf) | PDF |
+| [Week 3](Files/Progress-W3.pdf) | PDF |
+| [Week 4](Files/Progress-W4.pdf) | PDF |
+| [Week 5](Files/Progress-W5.pdf) | PDF · [Slides](Files/Progress-W5.pptx) |
+| [Week 6](Files/Progress-W6.pdf) | PDF · [Slides](Files/Progress-W6.pptx) |
+| [Week 7](Files/Progress-W7.pptx) | Slides |
+| [Week 8](Files/Progress-W8.pptx) | Slides |
+| [Week 10](Files/Progress-W10.pdf) | PDF |
+| [Week 11](Files/Progress-W11.pptx) | Slides |
+| [Week 12](Files/Progress-W12.pptx) | Slides |
