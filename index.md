@@ -363,6 +363,17 @@ npm run dev
 
 ---
 
+## Autonomous Mode Testing
+
+With all subsystems fully integrated — YOLOv8 detection on the laptop, TCP communication to the Raspberry Pi, platform tracking, and Arduino joint control — the complete autonomous pipeline was tested end-to-end. The robot successfully detected target objects, steered the platform to centre and approach them, and executed the pick-and-place sequence without any manual input. All systems performed as expected and the results were successful.
+
+<p align="center">
+  <img src="Images/auto_testing.gif" width="720"/>
+</p>
+<p align="center"><em>Full autonomous mode test — object detection, platform tracking, arm movement, and pick sequence running without human intervention</em></p>
+
+---
+
 ## System Testing
 
 <p align="center">
